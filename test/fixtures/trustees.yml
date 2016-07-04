@@ -1,0 +1,47 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  person_id: 1
+  spouse_co_trustee: false
+  successor_trustee_1: MyString
+  successor_trustee_2: MyString
+  successor_trustee_3: MyString
+  trustee_as_guardian: false
+  other_guardian: MyString
+  co_trustee_1: MyString
+  co_trustee_2: MyString
+  co_trustee_3: MyString
+  co_trustee_4: MyString
+  co_trustee_6: MyString
+  bank_trustee: MyString
+  pay_trustee: false
+  pay_per_hour: MyString
+  flat_fee: MyString
+  percentage: MyString
+  additional_successor_trustee_method: MyString
+  percentage_of_beneficiaries: MyString
+  person_to_choose_additional_trustees: MyString
+  remove_trustee_method: MyString
+
+two:
+  person_id: 1
+  spouse_co_trustee: false
+  successor_trustee_1: MyString
+  successor_trustee_2: MyString
+  successor_trustee_3: MyString
+  trustee_as_guardian: false
+  other_guardian: MyString
+  co_trustee_1: MyString
+  co_trustee_2: MyString
+  co_trustee_3: MyString
+  co_trustee_4: MyString
+  co_trustee_6: MyString
+  bank_trustee: MyString
+  pay_trustee: false
+  pay_per_hour: MyString
+  flat_fee: MyString
+  percentage: MyString
+  additional_successor_trustee_method: MyString
+  percentage_of_beneficiaries: MyString
+  person_to_choose_additional_trustees: MyString
+  remove_trustee_method: MyString

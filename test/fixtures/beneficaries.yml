@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  person_id: 1
+  name: MyString
+  relationship: MyString
+  under_18: false
+  percentage_of_assets: MyString
+  specific_gifts: MyText
+  distribute_lump_sum: false
+  distribute_over_time: false
+  give_at_death: false
+  age_lump_sum: MyString
+  age_first_distribution: MyString
+  percent_first_distribution: MyString
+  preceeding_death_distribution: MyString
+
+two:
+  person_id: 1
+  name: MyString
+  relationship: MyString
+  under_18: false
+  percentage_of_assets: MyString
+  specific_gifts: MyText
+  distribute_lump_sum: false
+  distribute_over_time: false
+  give_at_death: false
+  age_lump_sum: MyString
+  age_first_distribution: MyString
+  percent_first_distribution: MyString
+  preceeding_death_distribution: MyString

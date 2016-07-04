@@ -1,0 +1,132 @@
+%h1 Last Will and Testament of #{@person.spouse_name}
+
+%ol.legal
+  %li
+    Family and Beneficiaries
+
+    %ol
+
+      %li I, #{@person.spouse_name}, declare this to be my last Will, hereby revoking all former wills and codicils. 
+      %li I have not entered into any contract to make this will, and any similarity of the provisions of this will to the provisions of a will of my husband shall not be construed as evidence of such a contract.
+
+	  
+  %li 
+    Personal Representative
+
+    %ol
+
+      %li 
+        =render :partial => "will_personalrepresentative_spouse"
+
+      %li To the extent allowed by law, I direct that my personal representative and his or her successors serve without bond or other undertaking and without reporting or accounting to any court.
+      %li I give my personal representative all powers conferred on a personal representative by #{@person.state} law as now existing or later amended, whether or not those powers are exercised in #{@person.state}.<br><br><br><br>
+
+
+  %li
+    Gifts
+
+    %ol
+      %li If #{@person.name} survives me, I give him all my interest not previously transferred to the #{@person.trustname}, including but not limited to the following items of property:  household furniture, furnishings and fixtures, jewelry, china, silverware, books, pictures, clothing, art objects, collections and all other items of domestic, household or personal use or adornment that at the time of my death shall be in, about or used in connection with my home.  I also give him all sporting and recreational equipment; all other tangible property for personal use; all other like contents of my home and any vacation property that I may own or reside in on the date of my death; all animals; any motor vehicles that I may own on the date of my death; and any unexpired insurance on all such property.
+      %li If #{@person.name} does not survive me, then I give the property described above in paragraph 3.1 to the trustee of the trust described by this Will in Article 4.
+
+  %li
+    Residue of Estate
+
+    %ol
+      %li I give the residue of my estate to the trustee of the #{@person.trustname} dated #{@person.currentdate}, between #{@person.name} and #{@person.spouse_name} as trustors and #{@person.name} and #{@person.spouse_name} as co-trustees, to be added to that trust and held, administered, and distributed in accordance with its provisions, including any amendments made to it before my death (whether made before or after the execution of this Will).
+
+	  
+  %li	  
+    Other Administrative Provisions
+    
+    %ol
+      %li A beneficiary under my Will shall be considered to survive me only if the beneficiary is living on the sixtieth day after the date of my death. 
+      %li Except as otherwise provided in Paragraph 5.7, I direct my personal representative to pay out of the residue of my estate, without apportionment, all estate, inheritance, and other death taxes (including interest and penalties) payable by reason of my death on property passing under this Will.  All death taxes on property not passing under this Will shall be apportioned according to #{@person.state} law.
+      %li Except as otherwise provided in Paragraph 5.8, I direct my personal representative to pay out of the residue of my estate, without apportionment, all debts of mine as they come due, expenses of my last illness and funeral, and expenses incurred in administering or distributing my estate.
+      %li 
+        My personal representative shall have sole discretion to:
+	  
+        %ol
+          %li Claim deductions available to me or to my trust on inheritance or estate tax returns or on federal income tax returns;
+          %li Make pro rata or non-pro rata distributions without regard to any differences in tax basis of assets distributed;
+          %li Make allocations between income and principal;
+          %li Determine asset values (including date-of-death values or alternate valuation date values) for estate and inheritance tax purposes and for asset distribution purposes; and
+          %li Make distributions in cash, in specific property, in undivided interests in property, or partly in cash and partly in property. 
+
+      %li The good faith decisions of my personal representative and trustee in the exercise of these powers shall be conclusive and binding on all parties, and my personal representative or trustee does not need to make any adjustments between beneficiaries because of any election, decision, or distribution.
+      %li The validity and construction of my Will shall be determined under #{@person.state} law in effect on the date my Will is signed.
+      %li If the trust described in Article 4 is in existence at my death, my personal representative may collect from the trustee of the trust any death taxes payable by reason of my death that my trustee is authorized to pay out of the trust estate.
+      %li If the trust described in Article 4 is in existence at my death, my personal representative may collect from the trustee of the trust any amounts which my trustee is authorized to pay out of the trust estate for debts of mine as they come due, expenses of my last illness and funeral, and expenses incurred in administering or distributing my estate.
+      %li If any portion of the residue is distributable free of trust in accordance with the trust's provisions, my personal representative shall distribute that portion directly to the beneficiary or beneficiaries.
+
+%p <strong>IN WITNESS WHEREOF,</strong> I, #{@person.spouse_name}, execute this my last will on #{@person.currentdate}.
+
+
+%span ___________________________________ <br>
+#{@person.spouse_name}
+
+%h1 Statement of Witnesses
+
+%p This Will was on the above date signed by her who declared this to be her Will; and we, at her request and in her presence and in the presence of each other, have signed our names as attesting witnesses. At the time this Will was signed, we believed the testator was of sound mind and memory and was acting voluntarily.
+
+
+
+%span ___________________________________ <br>
+Signature of Witness #1<br>
+<br>
+
+%span ___________________________________ <br>
+Street Address of Witness #1<br>
+<br>
+
+%span ___________________________________ <br>
+City, State, and Zip Code of Witness #1<br>
+<br>
+<br>
+
+
+%span ___________________________________ <br>
+Signature of Witness #2<br>
+<br>
+
+%span ___________________________________ <br>
+Street Address of Witness #2<br>
+<br>
+
+%span ___________________________________ <br>
+City, State, and Zip Code of Witness #2<br>
+<br>
+
+
+%h1 Affidavit of Attesting Witnesses to Will
+
+State of #{@person.state} <br>
+County of #{@person.county}
+
+%p We, ___________________________________________ and ___________________________________________ , being sworn, each say:
+%p We are the attesting witnesses to the Will executed by #{@person.spouse_name}, dated #{@person.currentdate}. The Will was executed in our presence and in the presence of the testator, who declared the instrument to be her Will and requested us to sign our names as witnesses, which we did. To the best of our knowledge and belief, the testator was of legal age, of sound mind, and not acting under any restrain, undue influence, duress, or fraudulent misrepresentation.<br>
+<br>
+<br>
+
+%span ___________________________________ <br>
+Signature of Witness #1<br>
+<br>
+<br>
+
+%span ___________________________________ <br>
+Signature of Witness #2<br>
+<br>
+<br>
+
+%p SUBSCRIBED AND SWORN TO by each of the above named affiants on #{@person.currentdate}.
+<br>
+<br>
+
+%span ___________________________________ <br>
+Notary Public for #{@person.state}<br>
+My commission expires: __________________ <br>
+
+
+
+/*#{@person.name} and #{@person.spouse_name}
+

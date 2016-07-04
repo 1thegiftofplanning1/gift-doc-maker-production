@@ -1,0 +1,28 @@
+-# Using custom tags and CSS to show/hide conditional text
+- if @person.marital_status == "I am married."
+  :scss
+    married { display: inline; }
+- else
+  :scss
+    single { display: inline; }
+	
+- if @person.gender == "Male"
+  :scss
+    male { display: inline; }
+- else
+  :scss
+    female { display: inline; }	
+	
+
+-# Conditional Blocks
+- if @person.trusteenumber == "One"
+  I, #{@person.name}, name <male>#{@person.spouse_name}</male><single>#{@person.trusteetheone}</single> as my agent and attorney in fact with all of the powers described below. 
+- elsif @person.trusteenumber == "Two"
+  I, #{@person.name}, name #{@person.spouse_name} as my agent and attorney in fact with all of the powers described below. If #{@person.spouse_name} is unable or unwilling to serve, I name #{@person.trusteetheone} as my successor agent and attorney in fact. 
+- elsif @person.trusteenumber == "Three"
+  I, #{@person.name}, name #{@person.trusteetheone} as my agent and attorney in fact with all of the powers described below. If #{@person.trusteetheone} is unable or unwilling to serve, I name #{@person.trusteethesecond} as my successor agent and attorney in fact. If #{@person.trusteethesecond} is unable or unwilling to serve, I name #{@person.trusteethethird} as my successor agent and attorney in fact.
+- elsif @person.trusteenumber == "Four"
+  If neither of us can serve as trustee because of resignation, incapacity, or death, we name #{@person.trustee.single_successor_trustee} as our successor trustee. If #{@person.trustee.single_successor_trustee} is unable or unwilling to serve, we name #{@person.trustee.second_successor_trustee} as our successor trustee. If #{@person.trustee.second_successor_trustee} is unable or unwilling to serve, we name #{@person.trustee.third_successor_trustee} as our successor trustee. If #{@person.trustee.third_successor_trustee} is unable or unwilling to serve, we name #{@person.trustee.fourth_successor_trustee} as our successor trustee. If #{@person.trustee.fourth_successor_trustee} is unable or unwilling to serve, we direct the successor trustee to be chosen according to Section 4.11 of this trust.
+
+
+

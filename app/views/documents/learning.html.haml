@@ -1,0 +1,30 @@
+= render :file => "documents/example"
+- if @person.california?
+  =render :partial => "trust_california"
+- elsif @person.oregon?
+  =render :partial => "trust_oregon"
+- else
+  %h1 This person is from #{@person.state}, not OR or CA.
+
+-# Interpolated Ruby
+%p The name of the person is #{@person.name}, to be sure.
+
+-# Conditional Blocks
+- if @person.marital_status == "I am married."
+  %p There are many niceties married folks enjoy.
+- else
+  %p Singleness too has its blessings.
+
+-# Ruby Blocks (to loop through beneficiaries, etc, and display data from and content for each)
+- @person.beneficaries.each do |beneficiary|
+  %p #{beneficiary.name} is a beneficiary and is your #{beneficiary.relationship.downcase}
+
+-# Using custom tags and CSS to show/hide conditional text
+- if @person.marital_status == "I am married."
+  :scss
+    married { display: inline; }
+- else
+  :scss
+    single { display: inline; }
+
+ %li On #{@person.created_at.strftime("%B %e, %Y")} <married>we</married><single>I</single>—#{@person.name}<married> and #{@person.spouse_name}</married>—created this trust by signing this trust agreement between <married>ourselves as trustors and ourselves as trustees: we</married><single>myself as trustor and myself as trustee: I</single> transferred legal ownership of those assets described in the attached property list from <single>myself as an individual to myself as trustee</single><married>ourselves as individuals to ourselves as trustees</married> of this trust, and <single>I</single><married>we</married> provided the means by which those assets would be administered and ultimately distributed to <single>my</single><married>our</married> beneficiaries.  <single>My</single><married>Our</married> trust consists of all the property <single>I</single><married>we</married> have described on a list called The [Name_of_Trust] Property List, which we have attached to the back of this trust, as well as all other property transferred to our trustee or otherwise intended by us to be transferred to our trustee.

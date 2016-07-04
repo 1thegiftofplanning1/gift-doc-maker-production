@@ -1,0 +1,64 @@
+commit 77e6a734d0e6aeee93bc0d54324b19020faef789
+Merge: 9c5aa3f dfbe09b
+Author: BillBlackstone <whitneyclark@whitney-clarks-macbook-pro-2.local>
+Date:   Mon Sep 22 17:05:30 2014 -0700
+
+    Merge branch 'master' into production
+
+commit dfbe09b37d03c5cbb63be57675d8c7bd4af15c65
+Author: BillBlackstone <whitneyclark@whitney-clarks-macbook-pro-2.local>
+Date:   Mon Sep 22 17:04:34 2014 -0700
+
+    New field number for trusteenumber
+
+commit d4aa6863b1570b6661f65b4b2c5e76e93004d761
+Merge: 2f83540 9c5aa3f
+Author: BillBlackstone <whitneyclark@whitney-clarks-macbook-pro-2.local>
+Date:   Sat Sep 20 21:13:22 2014 -0700
+
+    Merge branch 'production'
+
+commit 9c5aa3fcfb354963d38c6754bcabfcae4ca7e170
+Author: BillBlackstone <whitneyclark@whitney-clarks-macbook-pro-2.local>
+Date:   Sat Sep 20 21:12:41 2014 -0700
+
+    Change trustee field
+
+commit 7ac2a54323e511e549878df8031082a6c893e955
+Merge: 8ca0b0e 2f83540
+Author: BillBlackstone <whitneyclark@whitney-clarks-macbook-pro-2.local>
+Date:   Sat Sep 20 19:08:15 2014 -0700
+
+    Merge branch 'master' into production
+
+commit 2f8354024d354f24c45afbdc176f6f4f0531b120
+Author: BillBlackstone <whitneyclark@whitney-clarks-macbook-pro-2.local>
+Date:   Sat Sep 20 19:07:33 2014 -0700
+
+    Change trustee field
+
+commit 8ca0b0e6f5f8e6ee840751c9d42be76d4caf9e78
+Merge: 2024bfd 19e2245
+Author: BillBlackstone <whitneyclark@whitney-clarks-macbook-pro-2.local>
+Date:   Sat Sep 20 18:29:05 2014 -0700
+
+    Merge branch 'master' into production
+
+commit 19e22453051f45f3cd829c5415f547761160860f
+Author: BillBlackstone <whitneyclark@whitney-clarks-macbook-pro-2.local>
+Date:   Sat Sep 20 18:28:23 2014 -0700
+
+    Change field number for trusteetheone
+
+commit e69048893ee936d20aa764d6edaed3c4cbf530df
+Merge: ca58b22 2024bfd
+Author: BillBlackstone <whitneyclark@whitney-clarks-macbook-pro-2.local>
+Date:   Sat Sep 20 16:08:35 2014 -0700
+
+    Merge branch 'production'
+
+commit 2024bfd9afcaf9e9c00c6dab51be4ba8d88aa7ae
+Author: BillBlackstone <whitneyclark@whitney-clarks-macbook-pro-2.local>
+Date:   Sat Sep 20 16:08:07 2014 -0700
+
+    test trusteetheone placement

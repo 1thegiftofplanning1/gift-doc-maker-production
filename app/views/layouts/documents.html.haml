@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %title The Gift
+    %style
+      = raw Rails.application.assets['documents.css'].to_s
+    %meta{:charset=>"utf-8" }
+    = javascript_include_tag "documents", "data-turbolinks-track" => true
+    = javascript_include_tag("http://use.typekit.net/tzk8wiy.js")
+    = javascript_tag("try{Typekit.load()}catch(e){}")
+    = csrf_meta_tags
+  %body
+    = yield
+

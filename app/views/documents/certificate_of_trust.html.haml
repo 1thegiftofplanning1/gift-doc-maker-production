@@ -1,0 +1,46 @@
+%h1 Certificate of Trust
+
+-# Using custom tags and CSS to show/hide conditional text
+- if @person.marital_status == "I am married."
+  :scss
+    married { display: inline; }
+- else
+  :scss
+    single { display: inline; }
+
+-# An example of deeper variation
+
+%ol.legal
+  %li
+    Establishment of Trust
+    %ol 
+      %li The #{@person.name}<married> and #{@person.spouse_name}</married> Family Trust was established under an agreement dated #{@person.currentdate}.  <single>The trustor of the trust is #{@person.name}</single><married>The trustors of the trust are #{@person.name} and #{@person.spouse_name}.</married> 
+      %li The currently acting <married>co-trustees of the trust are </married><single>trustee of the trust is #{@person.name}, who lives</single><married>#{@person.name} and #{@person.spouse_name}, who live</married> at #{@person.streetaddress}, #{@person.city}, #{@person.state} #{@person.postal}.
+     
+      %li The trust is governed by the laws of the state of Oregon, and the trustee is given powers granted a trustee under the Uniform Trust Code set forth in ORS 130.720 to 130.725.
+      %li The trust can be revoked and amended but only by #{@person.name} <married>and #{@person.spouse_name} acting together</married>.
+      %li The trust has not been revoked nor has it been amended in any manner that would cause the representations contained in this certificate to be incorrect.
+      %li Legal title to trust assets is held by: <b>#{@person.name}<married> and #{@person.spouse_name}</married>, <married>co-trustees</married><single>trustee</single> of the #{@person.trustname}, dated #{@person.currentdate}.</b>
+      %li The trust's taxpayer identification number is ______ - ____ - ________.<br>
+<p><b>I hereby certify</b> the above to be true as of #{@person.currentdate}.
+<br>
+<br>
+%span ___________________________________ <br>
+%span #{@person.name}<br>
+<br><married> 
+%span ____________________________________ <br>
+%span #{@person.spouse_name}<br></married>
+<br>
+<br>
+STATE OF OREGON, County of #{@person.county} <br>
+
+<p>This instrument was acknowledged before me on #{@person.currentdate} by #{@person.name}<married> and #{@person.spouse_name}</married>. <br> 
+<br>                   
+<br>    
+%span ____________________________________ <br>
+%span Notary Public for Oregon <br>
+%span My Commission Expires: _____________ <br>
+
+
+
+/*#{@person.name}<married> and #{@person.spouse_name}</married>*/

@@ -1,0 +1,45 @@
+%h1 Trust Amendment
+
+
+-# Using custom tags and CSS to show/hide conditional text
+- if @person.marital_status == "I am married."
+  :scss
+    married { display: inline; }  
+- else
+  :scss
+    single { display: inline; }
+    
+- if @person.gender == "Male"
+  :scss
+    male { display: inline; }
+- else
+  :scss
+    female { display: inline; }
+
+
+<p><single>I, #{@person.name}, the trustor and currently acting trustee of the #{@person.name} Family Trust dated #{@person.currentdate},</single><married>We--#{@person.name} and #{@person.spouse_name}--the trustors and currently acting co-trustees of the #{@person.name} and #{@person.spouse_name} Family Trust dated #{@person.currentdate},</married> amend the trust as follows:
+
+<p>1.  By replacing Section ____________ with the following:</p>
+<br>  
+<br> 
+<br>
+<br>  
+<br>
+<p>2.  By adding the following to Section ___________ :</p>  
+<br>
+<br>  
+<br>
+<br>  
+<br>
+<p>3.  In all other respects, the Trust Agreement is ratified and confirmed.</p>
+ 
+<p>DATED: __________________</p>
+<br>
+
+%span __________________________________ <br>
+#{@person.name}</p>
+<br>
+<br><married>  
+%span __________________________________ <br>
+#{@person.spouse_name}</p></married>
+

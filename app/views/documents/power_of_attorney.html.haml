@@ -1,0 +1,82 @@
+%h1 Durable General Power of Attorney
+
+-# Using custom tags and CSS to show/hide conditional text
+- if @person.marital_status == "I am married."
+  :scss
+    married { display: inline; }
+- else
+  :scss
+    single { display: inline; }
+	
+- if @person.singleorco == "Single trustees"
+  :scss
+    alone { display: inline; }
+- else
+  :scss
+    co { display: inline; }	
+
+-# An example of deeper variation
+
+
+
+-# An example section from the Trust ###########################
+
+%ol.legal
+  %li
+    Appointment of Agent and Attorney in Fact
+
+    %ol
+      %li I, #{@person.name}, name <married>#{@person.spouse_name}</married><single>#{@person.trusteetheone}</single> as my agent and attorney in fact with all of the powers described below.
+      %li If <married>#{@person.spouse_name}</married><single>#{@person.trusteetheone}</single> is unable or unwilling to act for me, I name <single>#{@person.trusteethesecond}</single><married>#{@person.trusteetheone}</married> to serve as successor agent and attorney in fact. 
+      
+    
+  %li
+    Powers of Agent and Attorney in Fact
+
+    %ol
+      %li SUPPORT.  To make expenditures for my care, maintenance, support and general welfare, and to distribute such sums as are necessary for the care, maintenance, education and support of members of my immediate family who are or become dependent on me for support;
+      %li MANAGEMENT.  To take possession of, manage, administer, operate, maintain, improve and control all my property, real and personal; to insure; and to pay any and all taxes, charges and assessments that may be levied or imposed;
+      %li COLLECTIONS.  To collect and receive any money, property, debts or claims whatsoever, now or hereafter due, owing and payable or belonging to me; to forgive debts; and to give receipts or other sufficient discharges;
+      %li CHECKS AND NOTES.  To sign, endorse, sell, discount, deliver and/or deposit checks, drafts, notes and negotiable or nonnegotiable instruments, including any payments to me drawn on the Treasury of the United States or the State of Oregon or any other state or governmental entity, and to accept drafts;
+      %li INVESTMENTS.  To retain any property in the hands of the agent in the form in which it was received; and to make investments and changes of investments in such securities, including common and preferred stocks of corporations or other property, real or personal, as my agent decides is prudent;
+      %li DEBTS. To pay my debts and other obligations;
+      %li LITIGATION.  To sue upon, defend, compromise, submit to arbitration or adjust any controversies in which I may be interested; and to act in my name in any complaints, proceedings or suits with all the powers I would possess if personally present and under no legal disability;
+      %li CUSTODY OF PAPERS.  To take custody of my Will, deeds, life insurance policies, contracts, securities, or other important papers;
+      %li DISPOSITION.  To sell, convey, grant, exchange, transfer, option, convert, mortgage, pledge, consign, lease and otherwise dispose of any of my property, whether real or personal;
+      %li BORROWING.  To advance or loan the agent's own funds on my behalf; and to borrow any sums of money on such terms and at such rate of interest as my agent may deem proper and to give security for the repayment of the same;
+      %li AGREEMENTS.  To make and deliver any deeds, conveyances, contracts, covenants and other instruments, undertakings or agreements, either orally or in writing, which my agent may deem proper;
+      %li VOTING.  To appear and vote for me in person or by proxy at any corporate or other meeting;
+      %li SAFE DEPOSIT BOX.  To have access to any safety deposit box which has been rented in my name or in the name of myself and any other person or persons;
+      %li WITHDRAWAL OF FUNDS.  To withdraw any moneys deposited with any bank, mutual savings bank, credit union, savings and loan association, mutual fund, money market account, investment advisor or broker in may name or in the name of myself and any other person or persons and generally to do any business with any such financial institution or agency on my behalf;
+      %li TAX RETURNS.  To sign and file on my behalf all city, county, state, federal and other governmental or quasi-governmental tax returns or reports, including income, gift, sales, business, and property tax returns or reports of every kind; to execute waivers, extension agreements, settlement agreements and closing agreements with respect to those returns and to appear for me, in person or by attorney, and represent me before the United States Treasury Department or the Oregon Department of Revenue or the taxing authority of any other state or governmental entity;
+      %li GOVERNMENT BENEFITS.  To do and perform every act necessary or desirable and to serve as representative payee with respect to rights and entitlements for my benefit and the benefit of my spouse from Social Security, Medicare and military service;
+      %li TREASURY BONDS.  To purchase U.S. Treasury Bonds or other instruments redeemable at par in payment of federal estate taxes;
+      %li ADDITIONS TO TRUST.  To add any or all of my assets to a trust created by me alone or in conjunction with one or more other persons and already in existence at the time of the creation of this power if the trust provides that the income and principal shall be paid to me or applied for my benefit during my lifetime;
+      %li BUSINESS INTERESTS.  To continue as a going concern any business interest owned by me, either individually or as a co-partner;
+      %li RETIREMENT ACCOUNTS.  To act on my behalf in dealing with my pension and retirement plans, including the power to make IRA contributions, IRA rollovers, voluntary contributions, borrow from any retirement plan, elect or select pay out options, and take any other steps which I might take on my own behalf with regard to my retirement and/or IRA/pension plans;
+      %li GIFTS.  I further authorize the holder of this power to make gifts to others on my behalf to continue any gifting program that I have established in my estate planning or that is consistent with my estate planning and expressed goal of reducing federal estate taxes;
+      %li DISCLAIMER.  To renounce and disclaim any property or interest in property or powers to which I may become entitled, and to file any such disclaimer with appropriate courts or persons, and to consider my estate planning and the reduction of estate taxes in exercising such powers;
+      %li SUBSTITUTION AND DELEGATION.  To appoint and substitute for my said agent any agents, nominees or attorneys to exercise any or all of the powers herein and to revoke their authority at pleasure;
+      %li GENERAL AUTHORITY.  I authorize my agent for me in my name generally to do and perform all and every act and thing necessary or desirable to conduct, manage and control all my business and my property as my agent may deem for my best interests and to execute and acknowledge any and all instruments necessary or proper to carry out the foregoing powers, hereby releasing all third persons from responsibility for my agent's acts and omissions and I empower my  agent to indemnify all such persons against loss, expense and liability;
+      %li THIRD PARTY RELIANCE.  Third persons may conclusively rely upon the continued validity of this Power of Attorney until receiving actual knowledge of its revocation.  Third persons may conclusively rely on a copy of this instrument in its entirety to any portion thereof certified as such by my agent;
+      %li DURABILITY.  These powers of attorney shall be exercisable by my agent on my behalf, even if I become legally disabled or incompetent.<br><br><br><br>
+      %li GOVERNING LAW.  All questions pertaining to validity, interpretation and administration of this power shall be determined in accordance with the laws of Oregon.
+
+      
+%span ___________________________________ <br>
+Signature of #{@person.name}<br>
+<br><br><br><br><br>
+State of #{@person.state}, County of #{@person.county}
+
+%p SUBSCRIBED AND SWORN TO by the above named affiant on #{@person.currentdate}.
+
+
+%span ___________________________________ <br>
+Notary Public for #{@person.state}<br>
+My commission expires: __________________ <br>
+
+-#I, #{@person.name}, name #{@person.spouse_name} as my agent and attorney in fact with all of the powers described below.
+-#      %li If #{@person.spouse_name} is unable or unwilling to act for me, I name #{@person.trusteetheone} to serve as successor agent and attorney in fact.
+
+
+

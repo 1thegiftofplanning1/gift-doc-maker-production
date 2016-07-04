@@ -1,0 +1,175 @@
+%h1 The #{@person.name} Family Trust
+
+-# Using custom tags and CSS to show/hide conditional text
+- if @person.marital_status == "I am married."
+  :scss
+    married { display: inline; }
+- else
+  :scss
+    single { display: inline; }
+	
+- if @person.singleorco == "Single trustees"
+  :scss
+    alone { display: inline; }
+- else
+  :scss
+    co { display: inline; }
+	
+- if @person.lumporseries == "In a lump sum."
+  :scss
+    lump { display: inline; }
+- else
+  :scss
+    series { display: inline; }
+
+-# An example of deeper variation
+
+
+-# An example section from the Trust ###########################
+
+%ol.legal
+  %li
+    I Create My Trust 
+
+    %ol
+      %li On #{@person.currentdate}, <married>we</married><single>I</single>—#{@person.name}<married> and #{@person.spouse_name}</married>—created this trust by signing this trust agreement between <married>ourselves as trustors and ourselves as trustees: we</married><single>myself as trustor and myself as trustee: I</single> transferred legal ownership of those assets described in the attached property list from <single>myself as an individual to myself as trustee</single><married>ourselves as individuals to ourselves as trustees</married> of this trust, and <single>I</single><married>we</married> provided the means by which those assets would be administered and ultimately distributed to <single>my</single><married>our</married> beneficiaries.  <single>My</single><married>Our</married> trust consists of all the property <single>I</single><married>we</married> have described on a list called The <single>#{@person.name}</single><married>#{@person.name} and #{@person.spouse_name}</married> Property List, which I have attached to the back of this trust, as well as all other property transferred to my trustee or otherwise intended by me to be transferred to my trustee.
+      %li <single>I</single><married>We</married> can modify or alter any provision of this trust at any <single>time.</single><married>time, except that a surviving spouse cannot alter or modify any provision of section 3.4 of this trust after the death of his or her spouse.</married>
+      %li <married>We agree in advance that changes</married><single>Changes</single> to this trust will be valid only if they are in writing and only if they are signed and dated by <married>one of us.</married><single>me.</single>
+      %li 
+        <married>Either one of us may revoke the trust in whole or in part by signing a written statement containing that revocation and delivering it to our trustee.  When that revocation is delivered to our trustee, he or she will distribute the assets affected by the revocation to us as in equal shares.</married><single>I may revoke the trust in whole or in part by signing a written statement containing that revocation and delivering it to my trustee.  When that revocation is delivered to my trustee, he or she will distribute to me the assets affected by the revocation.</single>
+
+  %li
+    <Married>We</Married><Single>I</Single> Describe How the Trust Property Will Be Distributed
+
+    %ol
+      %li
+        I will be the initial trustee of this trust. If I resign or become incapacitated, I direct my trustee to administer the trust's assets as follows:
+
+        %ol
+          %li <em>Distribution of Income</em>. My trustee shall distribute all of the income to me on a monthly basis.  
+          %li <em>Invasion of Principal</em>. In addition, my trustee shall distribute to me such portions of principal as my trustee shall determine to be necessary for my health (including but not limited to medical, dental, hospital, and nursing expenses), education, maintenance, and support.  
+          %li <em>Principal on Demand</em>. In addition, my trustee shall distribute to me such portions of principal as I may from time to time demand in writing, even if that withdrawal exhausts this trust.
+
+      %li
+        After death, my trustee shall distribute the trust property to my descendants and beneficiaries as follows:
+        %ol 
+          %li
+            =render :partial => "trust_beneficiaries"          
+      %li
+        If any beneficiary dies before <married>both of us die, our</married><single>I die, my</single> trustee shall distribute that beneficiary’s share to his or her children, one share for each child who survives the beneficiary and one share by right of representation for the surviving descendants of each child who does not survive that beneficiary. 
+
+      %li
+        If none of <married>our descendants survive us, our</married><single>my descendants survive me, my</single> trustee shall distribute <single>the residue of my trust estate to those persons surviving me who would be entitled to receive my intestate property as determined by Oregon law at the time I signed my trust.</single><married>one-half of the residue of our trust estate to those persons surviving #{@person.name} who would be entitled to receive his intestate property as determined by Oregon law at the time we signed our trust and one-half to those persons surviving #{@person.spouse_name} who would be entitled to receive her intestate property as determined by Oregon law at the time we signed our trust.       
+
+      %li
+        If any trust property is given to a person younger than 21, that property will be held in separate sub-trust of this trust for each child, and independently managed by my trustee.  The trustee shall be chosen according to the provisions in Sections 3 and 4. 
+
+        %ol	
+          %li Until a sub-trust ends, my trustee may distribute from time to time to or for the benefit of the beneficiary as much or all of the net income or principal of the sub-trust as the trustee deems necessary for the beneficiary's health, support, education, and maintenance. My trustee shall pay reasonable educational expenses and reasonable living expenses to (or for the benefit of) my beneficiaries. In deciding whether to make a distribution to the beneficiary, my trustee may take into account the beneficiary’s other income, resources, or sources of support.
+          %li Any sub-trust income which is not given to a beneficiary by my trustee shall be accumulated and added to the principal of the sub-trust that is being managed for that beneficiary. 
+          %li The interest of sub-trust beneficiaries shall not be transferable by voluntary or involuntary assignment or by operation of law and shall be free from the claims of creditors, from attachments, execution, bankruptcy, or other legal processes to the fullest extent permitted by law.
+
+      %li It is my intent that in the unfortunate event of an annulment, separation, or dissolution of marriage, domestic partnership, or civil union of any beneficiary and his/her partner, my beneficiary's share remains as an individual share only.  Thus, each share shall be kept only in the name of that beneficiary and shall remain separate from other funds. I do not want my beneficiary's share to be subject to any division or other disposition by court proceedings, e.g., pursuant to ORS 107.105(1) (f) or pursuant to analogous statutes in other jurisdictions.  I have no donative intent to any partner or spouse of a beneficiary, nor did any partner or spouse contribute to any beneficiary's share of my estate.  I did not consider any of my beneficiary's partners or spouses when making this distribution.
+
+  %li
+    I Describe Who I Want to Manage My Property 
+
+    %ol	
+      %li If I am unwilling to serve as trustee, I will name my successor trustee in writing.
+      %li If I cannot name my successor trustee because of incapacity as defined in section 4.10, the trustee will be the one chosen according to the next section (3.3).  
+      
+      %li
+        =render :partial => "trust_trustees_single" 
+       
+        
+      %li The successor trustee will manage the trust property and use any part of the trust income or principal to pay for my health care, support, and maintenance in accordance with my accustomed manner of living.  I direct my trustee to manage the trust property until a licensed physician certifies that I can manage my property or until I die.
+
+  %li
+    My Trustees’ Duties and Powers
+
+    %ol
+      %li The term “trustee” includes successor trustees and co-trustees. 
+      %li No bond shall be required of any trustee named in this document.
+      %li No trustee shall receive any compensation for the ordinary duties of administration.  My trustee shall be allowed reimbursement for actual costs involved in the administration as well as reasonable compensation for extraordinary services.  If a corporate or other independent trustee must be appointed, then that trustee shall be paid according to their schedule of fees for managing trusts of a similar size and complexity.
+      %li I give my trustee all the authority and power granted to trustees, subject to the trustee’s fiduciary duty to me and to my beneficiaries.  If I am incapacitated, the successor trustee may continue any previously established giving program designed to reduce the size of the estate for estate tax minimization purposes.
+      %li If any trust property includes real property located outside of Oregon, my trustee may convey title to that real property to a fiduciary qualified to serve in the jurisdiction where the real property is located.  That fiduciary shall hold the real property as an asset of the trust estate subject to all the terms of this instrument.
+      %li Any trustee may file with any person a written Certificate of Incumbency signed by the trustee and acknowledged in the form required for a deed for recording in Oregon, stating that such trustee is the duly appointed, acting and qualified trustee under this agreement.  Any acts by such trustee shall be conclusively deemed to have been performed with full right and authority.  Any person dealing with such trustee may rely solely upon that Certificate of Incumbency.
+      %li Any trustee shall have the right to appoint additional successor trustees to serve as trustee if all the successor trustees named in this trust agreement are unable or unwilling to serve as trustee. 
+      %li A trustee may resign as trustee at any time without the necessity of court approval.  Any resignation will be in writing to the successor trustee (if any) and to the beneficiaries.  The resignation will become effective only upon written acceptance of the trusteeship by the successor trustee.
+      %li If the trustee cannot administer the trust because of incapacity, the successor trustee will act as trustee during that period of incapacity and will have all rights and powers granted to the trustee by this instrument.
+      %li Incapacity means any physical or mental condition of the trustee that prevents the trustee from conducting the affairs of the trust estate.  Incapacity is conclusively established if the trustee’s attending physician, plus one other doctor authorized to practice medicine where the trustee lives, makes a written statement to that effect.  If there is no such written statement, the trustee may be chosen according to Section 4.11.
+      %li If there is not a competent trustee of my trust, a majority in interest of those beneficiaries of the trust who are of legal age and capacity and the guardians of those who are not of legal age and capacity may appoint a successor trustee or trustees.  Appointment shall be by a written document that is acknowledged by each person executing it.
+      %li A successor trustee or beneficiary who objects to following the procedures specified in this section may petition the court having jurisdiction over this trust to remove a trustee and, if there is no other acting trustee, replace him or her with the successor trustee.  If the petition is filed in good faith and in the reasonable belief that the substituted trustee is incapacitated or otherwise cannot act, that petitioner shall not incur any liability to any beneficiary or trustee of the trust.
+      %li Any third person dealing with our successor trustee shall accept, and shall be absolutely entitled to rely upon, the statement of the successor trustee that it has become the successor trustee in accordance with the provisions of this trust.  Third persons are under no obligation to make any investigation into the facts or circumstances of the assumption of authority by the successor trustee.
+      %li After I have died, any trustee may be removed on thirty days notice to the trustee by a majority in interest of our beneficiaries (or the guardians of those legally incompetent), provided that after such removal there is an independent trustee serving.  An independent trustee is an individual or an institution who has no beneficial interest in the trust, such as a bank or trust company, a professional trustee, investment advisor or manager, investment banker, accountant, or lawyer, and who is not related to or subordinate to any of our trust's beneficiaries.
+      %li All rights, title and interest in the property of the trust shall immediately vest in the successor trustee at the time of acceptance without further instrument of transfer or conveyance.  The prior trustee shall, without warranty, transfer to the successor trustee the existing trust property.  No successor trustee shall be under duty to examine the books or actions of the former trustee and shall not be held liable or responsible for any acts or defaults of any former trustee.
+      %li The trustee may consolidate any trust created by this instrument with any other trust if the trustee, beneficiaries and the provisions of each consolidation would not impair any tax benefit available to the trust.
+      %li My trustee shall have the power to receive other property, real and personal, tangible or intangible, including life insurance policies, devised, bequeathed, granted, conveyed, assigned or made payable to my trustee by me or by any other person or persons, which property, upon acceptance, shall be added to and become a part of the trust estate and shall be subject to this Agreement.
+
+
+  %li
+    Tax Provisions
+
+    %ol
+      %li The trustee shall pay out of the residue of my trust estate all estate, inheritance, and any other death taxes, plus interest and penalties, payable by reason of the death of either of us on property in or passing into any trust created by this agreement, without apportionment.
+      %li After my death, the trustee may pay my debts as they become due, including income taxes, penalties and interest, expenses of my last illness and funeral, and costs and expenses, including professional fees, necessary to administer and settle my probate or trust estate.
+      %li 
+        My trustee shall have the sole discretion to:
+
+        %ol
+          %li  Claim deductions available to me or to my trust on inheritance or estate tax returns or on federal income tax returns;
+          %li  Make pro rata or non-pro rata distribution without regard to any differences in tax basis of assets distributed;
+          %li  Make allocations between income and principal;
+          %li  Determine asset values (including date-of-death values or alternate valuation date values) for estate and inheritance tax purposes and for asset distribution purposes;
+          %li  Make distributions in cash, in specific property, in undivided interests in property, or partly in cash and partly in property.
+
+      %li The good faith decisions of the personal representative and trustee in the exercise of these powers in Section 5.3 shall be conclusive and binding on all parties, and the personal representative or trustee need not make any adjustments between beneficiaries because of any election, decision, or distribution.
+
+  %li
+    Provisions for Qualified Plans
+
+    %ol 
+      %li 
+        I intend for this trust to be the receptacle for proceeds from my qualified retirement plans, my tax deferred annuities under IRC §403(b), my individual retirement accounts, and any other tax-oriented accounts in which distribution requirements can be extended over longer periods of time by complying with the regulations promulgated by the Internal Revenue Service in §1.401(a) (9).
+
+        %ol        
+          %li For that purpose, I intend this trust to be considered the “designated beneficiary.”  To ensure such status, this trust has been written to comply with all applicable laws of the State of Oregon.  
+          %li Furthermore, all of the beneficiaries are individuals and are listed by name in section 3 or will otherwise be specifically identifiable at my death.  The Trustee may not distribute to my estate or to any charity or any other non-individual beneficiary any benefits payable to this trust under any qualified retirement plan, individual retirement account, or other retirement arrangement subject to the “minimum distribution rules” of §401(a)(9) of the Code, or other comparable provisions of law.  I intend that all such retirement benefits be distributed to or held for individual beneficiaries only within the meaning of §401(a)(9) and applicable regulations.  Accordingly, I direct that such benefits may not be used or applied for payment of my debts, taxes, expenses of administration, or other claims against my estate; nor for payment of estate, inheritance, or similar transfer taxes due on account of my death except to the minimum extent that would be required under applicable state or federal tax apportionment law in the absence of any specific provision on the subject in my will or this trust.  This paragraph shall not apply to any charitable bequest that is specifically directed to be funded with retirement benefits by other provisions of this instrument.
+          %li The class of a person’s “issue,” “children,” “descendants” or other similar group shall not include an individual who is a member of such group by virtue of legal adoption if such individual (1) was so adopted after the “Required Beginning Date” or my death, whichever occurs first, and (2) is older than the oldest beneficiary of this trust who was living on the earlier of those dates.  My “Required Beginning Date,” for purposes of this paragraph, means April 1 of the year following the year in which I reach age 70 ½, or, if later, the date on which this trust is first named as a beneficiary of any retirement plan, benefit or arrangement subject to the “minimum distribution rules” of §401(a) (9) of the Internal Revenue Code.  
+          %li This trust will become irrevocable at my death.  
+          %li I direct my trustee to supply appropriate documentation of this trust to the plan administrator, account custodian, or other person specified by law or regulation to receive such documentation.  
+          %li No one has the power to change a beneficiary after I die.
+          %li I direct my trustee to make the first minimum required distributions under IRC §401(a)(9) or its statutory successor no later than the end of the calendar year following the year of our death or at such other time as provided by  §401(a)(9), any amendment to that statute, or any successor to that statute.
+
+      %li If my trustee has any trust funds left under his or her control for which there is no named or described beneficiary, my trustee shall distribute that amount to those persons then living who would be entitled to receive the intestate personal property as determined by Oregon law as if I had died at the termination of the trust.<br><br><br><br>
+
+
+  %li
+    ADMINISTRATIVE PROVISIONS
+ 
+    %ol
+      %li If any beneficiary under this trust dies within sixty days after my death of the surviving spouse, all of the provisions in this trust for the benefit of such person shall lapse, and this trust shall be construed as if such person predeceased the surviving spouse.
+      %li Neither the principal nor the income of this trust shall be liable for debts of any beneficiary.  No beneficiary shall have any power to sell, assign, transfer, encumber, anticipate or dispose of his or her interest in the trust or its income.  The limitations in this section shall not restrict the exercise of any power of appointment or the right to disclaim.
+      %li The laws of the State of Oregon in effect on the date of this Revocable Living Trust shall govern the validity and interpretation of this Revocable Living Trust.  If any provision of this trust is held to be invalid or unenforceable, the remaining provisions shall nevertheless be carried into effect.
+      %li If at any time after I have died, the trustee determines that the principal of any trust created, or to be created, is of insufficient amount to justify establishment or continuance of the trust, the trustee is authorized, without necessity of court approval, after giving notice to those currently entitled to receive distributions from the trust, to terminate or not to establish the trust.  The trustee shall make terminating distributions to the beneficiaries of the trust or their custodians or conservators in proportions to which they were entitled to receive distributions at the time of termination of the interest.  The termination may be made only if, in the judgment of the fiduciary, after considering the age and capacity of the beneficiaries and the economic costs of maintaining the trust, it shall be in the best interests of the beneficiary or beneficiaries.  This power may be exercised even if the trustee is a beneficiary of the trust or has a duty of support for a beneficiary of the trust.
+      %li Despite any other provision of this instrument, each trust created by this instrument will terminate and be distributed to the person then entitled to distributions of income, in the manner and proportions stated in this instrument and regardless of their ages, not later than ninety (90) years after the creation of that specific trust or 21 years after the death of the last survivor of the beneficiaries named in this instrument who are living at the date of death of the surviving spouse, whichever is later in time.
+      %li If any beneficiary of this trust seeks through any court proceeding to prevent the administration of this trust in accordance with its terms, contest the validity of this trust, or challenge any of its provisions, any share or interest in my estate given to that beneficiary under this trust is revoked.  That share or interest shall be disposed of under this Trust as if that beneficiary did not survive me or, if the beneficiary is not a natural person, as if the beneficiary had ceased to exist without successors or assigns.
+	  
+<strong>Executed</strong> on #{@person.currentdate}<br><br><br>
+
+
+%span _________________________________<br>  
+#{@person.name}
+
+
+
+
+
+
+
+
+
+
+
+
+

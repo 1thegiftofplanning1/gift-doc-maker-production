@@ -1,0 +1,143 @@
+%h1 Example Document
+
+-# Interpolated Ruby
+%p The name of the person is #{@person.name}, to be sure.
+
+-# Conditional Blocks
+- if @person.marital_status == "I am married."
+  %p There are many niceties married folks enjoy.
+- else
+  %p Singleness too has its blessings.
+
+-# Ruby Blocks (to loop through beneficiaries, etc, and display data from and content for each)
+- @person.beneficaries.each do |beneficiary|
+  %p #{beneficiary.name} is a beneficiary and is your #{beneficiary.relationship.downcase} 
+
+- @person.charities.each do |charity|
+  %p #{charity.name} is a charity and is in #{charity.country} 
+
+
+-# Using custom tags and CSS to show/hide conditional text
+- if @person.marital_status == "I am married."
+  :scss
+    married { display: inline; }
+- else
+  :scss
+    single { display: inline; }
+    
+-# Using custom tags and CSS to show/hide conditional text
+- #if @person.trustee.number == "two"
+  :scss
+    two { display: inline; }
+- #else
+  :scss
+    three { display: inline; }
+    
+-# Include partial with multi variance
+= render :partial => 'example_variation'
+
+-# An example table of contents ###########################
+
+%h2 Table of Contents Example
+
+%ol#toc
+  %li
+    %a{href: "#item-create"} We Create Our Trust
+  %li
+    %a{href: "#item-family"} Family
+  %li
+    %a{href: "#item-distribution"} We Describe How the Trust Property Will Be Distributed
+
+
+-# An example section from the Trust ###########################
+
+%ol.legal
+  %li#item-create
+    We Create Our Trust 
+    
+    %ol
+      %li On #{@person.created_at.strftime("%B %e, %Y")} <married>we</married><single>I</single>—#{@person.name}<married> and #{@person.spouse_name}</married>—created this trust by signing this trust agreement between <married>ourselves as trustors and ourselves as trustees: we</married><single>myself as trustor and myself as trustee: I</single> transferred legal ownership of those assets described in the attached property list from <single>myself as an individual to myself as trustee</single><married>ourselves as individuals to ourselves as trustees</married> of this trust, and <single>I</single><married>we</married> provided the means by which those assets would be administered and ultimately distributed to <single>my</single><married>our</married> beneficiaries.  <single>My</single><married>Our</married> trust consists of all the property <single>I</single><married>we</married> have described on a list called The [Name_of_Trust] Property List, which we have attached to the back of this trust, as well as all other property transferred to our trustee or otherwise intended by us to be transferred to our trustee.
+      %li We can modify or alter any provision of this trust at any time, except that a surviving spouse cannot alter or modify any provision of section 3.4 of this trust after the death of his or her spouse.
+      %li We agree in advance that changes to this trust will be valid only if they are in writing and only if they are signed and dated by one of us.
+      %li Either one of us may revoke the trust in whole or in part by signing a written statement containing that revocation and delivering it to our trustee.  When that revocation is delivered to our trustee, he or she will distribute the assets affected by the revocation to us as in equal shares.
+          
+  %li#item-family
+    Family
+
+    %ol
+      %li <em>Children.</em>
+  
+  %li#item-distribution
+    We Describe How the Trust Property Will Be Distributed
+    
+    %ol
+      %li
+        <em>While we’re both alive.</em> Both of us will be the initial trustees of this trust.  As trustees—legal owners—we will make all the decisions about the property in this trust.  We will generally make those decisions together, but we also give each other the right to make final decisions about the trust property without consulting the other in cases of incapacity or absence.  That includes doing such things as selling trust property without authorization from the other trustee if that other trustee is incapacitated or absent.  In order to avoid any unintended gift tax consequences, we provide the following rights to each spouse:
+        
+        %ol
+          %li Each spouse has the right at any time to require the trustee to distribute to him or her one-half of the value of the trust's assets, including any accumulated income.
+          %li Each spouse has the right at any time to appoint one-half of the trust's assets to himself or herself.
+          %li The power of appointment for each spouse described in 3.1.2 cannot be suspended or eliminated during that spouse's incapacity.
+      
+      %li <em>What Happens When One of Us Dies.</em> If one of us dies and is survived by the other as determined by section 9.1, we direct our trustee to make the following provisions to minimize our estate tax liability and optimize our trustee’s ability to obtain a stepped-up basis in one-half of the assets:
+      
+%p <strong>Executed</strong> on the #{@person.created_at.strftime("%eth day of %B, %Y")}.
+
+%span _________________________________ <br>
+%span #{@person.name}, Trustor and Trustee
+<br><br>
+%span _________________________________ <br>
+%span #{@person.spouse_name}, Trustor and Trustee
+-# An example section from the Advance Directive ###########################
+
+%ol
+  %li
+    %strong Limits
+    
+    %ul
+      %li
+        Special conditions or instructions:
+        %hr
+        %hr
+        %hr
+      %li <strong>Initial if this applies</strong>: ____ I have executed a Health Care Instruction or Directive to Physicians, which is attached to this document as Part C. My representative is to honor it.
+  %li
+    <strong><em>Close to Death</em></strong>. If I am close to death and life support would only postpone the moment of my death:
+    
+    %ol.alpha
+      %li
+        <strong>Initial One</strong>:
+    
+        %ul
+          %li _______ I want to receive tube feeding.
+          %li _______ I want tube feeding only as my physician recommends. 
+          %li _______ I DO <em>NOT</em> WANT tube feeding.
+      %li
+        <strong>Initial One</strong>:
+    
+        %ul
+          %li _______ I want any other life support that may apply.
+          %li _______ I want life support only as my physician recommends. 
+          %li _______ I want <em>NO</em> life support.
+
+.note
+  NOTE: <strong>One</strong> witness must not be a relative (by blood, marriage or adoption) of the person signing this advance directive. That witness must also not be entitled to any portion of the person's estate upon death. That witness must also not own, operate or be employed at a health care facility where the person is a patient or resident.
+  
+  
+-# An example section from the Trust Certificate ###########################
+
+%ol.roman
+  %li The trustor of the trust is Arlen Byrd.
+  %li The trust has not been revoked nor has it been amended in any manner that would 	cause the representations contained in this certificate to be incorrect.
+  %li The trust is governed by the laws of the state of Oregon, and the trustee is given powers granted a trustee under the Uniform Trust Code set forth in ORS 130.720 to 130.725.
+  %li
+    Tested unordered sub list
+    
+    %ul
+      %li Item one is here
+      %li Second item here
+  %li And another item after
+  
+-# An example section from the Property List ###########################
+
+

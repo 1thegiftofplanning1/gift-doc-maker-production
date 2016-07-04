@@ -1,0 +1,3 @@
+== README
+
+You should setup config/database.yml An example is at config/database.yml.sample

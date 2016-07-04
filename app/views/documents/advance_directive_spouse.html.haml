@@ -1,0 +1,238 @@
+%h1 Advance Directive
+
+-# Using custom tags and CSS to show/hide conditional text
+- if @person.marital_status == "I am married."
+  :scss
+    married { display: inline; }
+- else
+  :scss
+    single { display: inline; }
+	
+- if @person.singleorco == "Single trustees"
+  :scss
+    alone { display: inline; }
+- else
+  :scss
+    co { display: inline; }
+	
+- if @person.co2_3 == "Yes"
+  :scss
+    co2_3 { display: inline; }
+	
+- if @person.lumporseries == "In a lump sum."
+  :scss
+    lump { display: inline; }
+- else
+  :scss
+    series { display: inline; }
+	
+- if @person.gender == "Male"
+  :scss
+    male { display: inline; }
+- else
+  :scss
+    female { display: inline; }	
+
+%p YOU DO NOT HAVE TO FILL OUT AND SIGN THIS FORM
+
+%strong PART A: IMPORTANT INFORMATION ABOUT THIS ADVANCE DIRECTIVE
+
+%p This is an important legal document. It can control critical decisions about your health care. Before signing, consider these important facts:</br></br>
+
+
+%p 1. <u>Facts About Part B (Appointing a Health Care Representative)</u>
+
+%p You have the right to name a person to direct your health care when you cannot do so. This person is called your "health care representative." You can do this by using Part B of this form. Your representative must accept on PART E of this form.
+
+%p You can write in this document any restrictions you want on how your representative will make decisions for you. Your representative must follow your desires as stated in this document or otherwise made known. If your desires are unknown, your representative must try to act in your best interest. Your representative can resign at any time.</br></br>
+
+
+%p 2. <u>Facts About Part C (Giving Health Care Decisions)</u>
+
+%p You also have the right to give instructions for health care providers to follow if you become unable to direct your care. You can do this by using PART C of this form.</br></br>
+
+
+%p 3. <u>Facts About Completing This Form</u>
+
+%p This form is valid only if you sign it voluntarily and when you are of sound mind. If you do not want an advance directive, you do not have to sign this form.
+
+%p Unless you have limited the duration of this advance directive, it will not expire. If you have set an expiration date, and you become unable to direct your health care before that date, this advance directive will not expire until you are able to make those decisions again.
+
+%p You may revoke this document at any time. To do so, notify your representative and your health care provider of the revocation.
+
+%p Despite this document, you have the right to decide your own health care as long as you are able to do so.
+
+%p If there is anything in this document that you do not understand, ask a lawyer to explain it to you.
+
+%p You may sign PART B, PART C, or both parts. You may cross out words that don't express your wishes or add words that better express your wishes. Witnesses must sign PART D.</br></br>
+
+
+%strong Print your NAME, BIRTH DATE and ADDRESS here:
+	                                                                                                
+%p Name:&nbsp;&nbsp;&nbsp;#{@person.spouse_name}
+%p Birth Date:&nbsp;&nbsp;&nbsp;_________________					
+%p Address:&nbsp;&nbsp;&nbsp;
+%p Date of Signing:&nbsp;&nbsp;&nbsp;#{@person.currentdate}<br><br>
+
+Unless revoked or suspended, this advance directive will continue for:
+%p INITIAL ONE:
+%p My entire life _________&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Other period ( _________ years)         
+   
+
+%strong PART B: APPOINTMENT OF HEALTH CARE REPRESENTATIVE
+
+%p I appoint #{@person.name} as my health care representative. My representative's address is ________________________________________ and telephone number is ____________________ .
+
+%p I appoint <married><co>#{@person.trusteetheone} and #{@person.trusteethesecond} as my alternate co-health care representatives. #{@person.trusteetheone}'s address is ________________________________ and telephone number is _____________. #{@person.trusteethesecond}'s address is ________________________________ and telephone number is _____________.</co><co2_3>#{@person.trusteetheone} as my alternate health care representative. #{@person.trusteetheone}'s address is ________________________________ and telephone number is _____________.</co2_3></married><single><alone>I appoint #{@person.trusteethesecond} as my alternate health care representatives. #{@person.trusteethesecond}'s address is ________________________________ and telephone number is _____________.</single></alone> 
+
+
+%p I authorize my representative (or alternate) to direct my health care when I cannot do so.<br>
+<br>
+
+.note
+  NOTE: You may not appoint your doctor, an employee of your doctor, or an owner, operator or employee of your health care facility, unless that person is related to you by blood, marriage or adoption or that person was appointed before your admission into the health care facility.
+<br>
+<br>
+
+%strong 1.&nbsp;&nbsp;&nbsp;Limits
+%p Special conditions or instructions:
+%hr
+%hr
+%hr
+ 
+%p <strong>Initial if this applies</strong>: 
+%p ______  I have executed a Health Care Instruction or Directive to Physicians, which is attached to this document as Part C. My representative is to honor it.<br><br>	  
+%strong 2.&nbsp;&nbsp;&nbsp;Life Support
+%p "Life support" refers to any medical means for maintaining life, including procedures, devices, and medications. If you refuse life support, you will still get routine measures to keep you clean and comfortable.
+%p <strong>Initial if this applies</strong>: 
+%p ______  My representative MAY decide about life support for me if I am unable to decide for myself. (If you don't initial this space, then your representative MAY NOT decide about life support.)<br><br>
+%strong 3.&nbsp;&nbsp;&nbsp;Tube feeding  
+%p One sort of life support is food and water supplied artificially by medical device, known as tube feeding.	
+%p <strong>Initial if this applies</strong>: 
+%p ______  My representative MAY decide about tube feeding for me if I am unable to decide for myself. (If you don't initial this space, then your representative MAY NOT decide about life support.)<br><br>
+SIGN HERE TO APPOINT A HEALTH CARE REPRESENTATIVE<br><br>
+___________________________________________ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE: ____________
+Signature of #{@person.spouse_name}<br><br><br><br><br><br><br>	  	
+
+%strong PART C: HEALTH CARE INSTRUCTIONS
+%p NOTE:  In filling out these instructions, keep the following in mind:
+%p a.&nbsp;&nbsp;&nbsp;The term "as my physician recommends" means that you want your physician to try life support if your physician believes it could be helpful and then discontinue it if it is not helping your health condition or symptoms.
+%p b.&nbsp;&nbsp;&nbsp;"Life support" and "tube feeding" are defined in PART B above.
+%p c.&nbsp;&nbsp;&nbsp;If you refuse tube feeding, you should understand that malnutrition, dehydration and death will probably result.
+%p d.&nbsp;&nbsp;&nbsp;You will get care for your comfort and cleanliness, no matter what choices you make.
+%p e.&nbsp;&nbsp;&nbsp;You may either give specific instructions by filling out Items 1 to 4 below, or you may use the general instructions provided by Item 5.<br><br>
+
+
+%p Here are my desires about my health care if my doctor and another knowledgeable doctor confirm that I am in a medical condition described below:
+
+<strong><em>1.&nbsp;&nbsp;&nbsp;Close to Death</em></strong>. If I am close to death and life support would only postpone the moment of my death:
+%p <strong>A.&nbsp;&nbsp;&nbsp;Initial One</strong>:
+
+%p _______ I want to receive tube feeding.
+%p _______ I want tube feeding only as my physician recommends. 
+%p _______ I DO <em>NOT</em> WANT tube feeding.
+<br>
+<br>
+%p <strong>B.&nbsp;&nbsp;&nbsp;Initial One</strong>:
+
+%p _______ I want any other life support that may apply.
+%p _______ I want life support only as my physician recommends. 
+%p _______ I want <em>NO</em> life support.</br></br></br>
+	  
+<strong><em>2.&nbsp;&nbsp;&nbsp;Permanently Unconscious</em></strong>. If I am unconscious and it is very unlikely that I will ever become conscious again:
+%p <strong>A.&nbsp;&nbsp;&nbsp;Initial One</strong>:
+
+%p _______ I want to receive tube feeding.
+%p _______ I want tube feeding only as my physician recommends. 
+%p _______ I DO <em>NOT</em> WANT tube feeding.<br><br>
+
+%p <strong>B.&nbsp;&nbsp;&nbsp;Initial One</strong>:
+
+%p _______ I want any other life support that may apply.
+%p _______ I want life support only as my physician recommends. 
+%p _______ I want <em>NO</em> life support.</br></br></br>
+
+	  
+<strong><em>3.&nbsp;&nbsp;&nbsp;Advanced Progressive Illness</em></strong>. If I have a progressive illness that will be fatal and is in an advanced stage, and I am consistently and permanently unable to communicate by any means, swallow food and water safely, care for myself and recognize my family and other people, and it is very unlikely that my condition will substantially improve:
+%p <strong>A.&nbsp;&nbsp;&nbsp;Initial One</strong>:
+
+%p _______ I want to receive tube feeding.
+%p _______ I want tube feeding only as my physician recommends. 
+%p _______ I DO <em>NOT</em> WANT tube feeding.<br><br>
+
+%p <strong>B.&nbsp;&nbsp;&nbsp;Initial One</strong>:
+
+%p _______ I want any other life support that may apply.
+%p _______ I want life support only as my physician recommends. 
+%p _______ I want <em>NO</em> life support.</br></br></br>
+
+    
+<strong><em>4.&nbsp;&nbsp;&nbsp;Extraordinary Suffering</em></strong>. If life support would not help my medical condition and would make me suffer permanent and severe pain:
+%p <strong>A.&nbsp;&nbsp;&nbsp;Initial One</strong>:
+
+%p _______ I want to receive tube feeding.
+%p _______ I want tube feeding only as my physician recommends. 
+%p _______ I DO <em>NOT</em> WANT tube feeding.<br><br>
+
+%p <strong>B.&nbsp;&nbsp;&nbsp;Initial One</strong>:
+
+%p _______ I want any other life support that may apply.
+%p _______ I want life support only as my physician recommends. 
+%p _______ I want <em>NO</em> life support.</br></br>
+    
+
+<strong><em>5.&nbsp;&nbsp;&nbsp;General Instructions</em></strong>. If life support would not help my medical condition and would make me suffer permanent and severe pain:
+%p <strong>Initial If This Applies</strong>:
+%p _______ I do not want my life to be prolonged by life support. I also do not want tube feeding as life support. I want my doctors to allow me to die naturally if my doctor and another knowledgeable doctor confirm I am in any of the medical conditions listed in Items 1 to 4 above.</br></br>
+
+<strong><em>6.&nbsp;&nbsp;&nbsp;Additional Conditions or Instructions</em></strong>.
+%hr
+%hr
+%hr
+%hr
+%hr
+%hr
+%hr
+%hr
+%hr
+%hr
+%hr
+%hr
+%hr
+
+<strong><em>7.&nbsp;&nbsp;&nbsp;Other Documents.</em></strong> A health care power of attorney is any document you may have signed to appoint a representative to make health care decisions for you.
+
+%p _______ I have previously signed a health care power of attorney. I want it to remain in                    		    effect. 
+%p _______ I have appointed a Health Care Representative in Part B of this document. 
+%p _______ I have a health care power of attorney, and I REVOKE IT.
+%p _______ I DO NOT have a health care power of attorney.</br></br></br>
+
+SIGN HERE TO GIVE INSTRUCTIONS<br><br>
+___________________________________________ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE: ____________
+Signature of #{@person.spouse_name}
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>	  	
+
+%strong PART D: DECLARATION OF WITNESSES
+%p We declare that the person signing this advance directive: 
+%p (a)&nbsp;&nbsp;&nbsp;Is personally known to us or has provided proof of identity:
+%p (b)&nbsp;&nbsp;&nbsp;Signed or acknowledge that person's signature on this advance directive in our presence;
+%p (c)&nbsp;&nbsp;&nbsp;Appears to be of sound mind and not under duress, fraud or undue influence;
+%p (d)&nbsp;&nbsp;&nbsp;Has not appointed either of us as health care representative or alternative representative; and
+%p (e)&nbsp;&nbsp;&nbsp;Is not a patient for whom either of us is an attending physician.<br><br>
+
+Witnessed By:<br><br>
+___________________________________________ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE: ____________<br><br>
+___________________________________________ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE: ____________<br><br><br>		  	
+ 	
+
+.note
+  NOTE: <strong>One</strong> witness must not be a relative (by blood, marriage or adoption) of the person signing this advance directive. That witness must also not be entitled to any portion of the person's estate upon death. That witness must also not own, operate or be employed at a health care facility where the person is a patient or resident.
+  
+<br><br><br><br>
+%strong PART E: ACCEPTANCE BY HEALTH CARE REPRESENTATIVE
+%p I accept this appointment and agree to serve as health care representative. I understand I must act consistently with the desires of the person I represent, as expressed in this advance directive or otherwise made known to me. If I do not know the desires of the person I represent, I have a duty to act in what I believe in good faith to be that person's best interest. I understand that this document allows me to decide about that person's health care only while that person cannot do so. I understand that the person who appointed me may revoke this appointment. If I learn that this document has been suspended or revoked, I will inform the person's current health care provider if known to me.<br><br>
+
+___________________________________________ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE: ____________<br><br><br><br>
+
+___________________________________________ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE: ____________		  	
+ 	

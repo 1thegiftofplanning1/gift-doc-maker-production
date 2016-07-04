@@ -1,0 +1,206 @@
+
+%h1 The #{@person.trustname}
+-# Using custom tags and CSS to show/hide conditional text
+- if @person.marital_status == "I am married."
+  :scss
+    married { display: inline; }
+- else
+  :scss
+    single { display: inline; }
+	
+- if @person.lumporseries == "In a lump sum."
+  :scss
+    lump { display: inline; }
+- else
+  :scss
+    series { display: inline; }
+	
+
+%ol.legal
+  %li
+    <married>Creation of Trust</married><single>My Creation of Trust</single>
+    %ol
+      %li On #{@person.currentdate}, <married>we</married><single>I</single>—#{@person.name}<married> and #{@person.spouse_name}</married>—created this trust by signing this trust agreement between <married>ourselves as trustors and ourselves as trustees: we</married><single>myself as trustor and myself as trustee: I</single> transferred legal ownership of those assets described in the attached property list from <single>myself as an individual to myself as trustee</single><married>ourselves as individuals to ourselves as trustees</married> of this trust, and <single>I</single><married>we</married> provided the means by which those assets would be administered and ultimately distributed to <single>my</single><married>our</married> beneficiaries.  <single>My</single><married>Our</married> trust consists of all the property <single>I</single><married>we</married> have described on a list called The #{@person.trustname} Property List, which <single>I</single><married>we</married> have attached to the back of this trust, as well as all other property transferred to <married>our trustee or otherwise intended by us to be transferred to our trustee.</married><single>my trustee or otherwise intended by me to be transferred to my trustee.</single>
+
+      %li <single>I</single><married>We</married> can modify or alter any provision of this trust at any <single>time.</single><married>time, except that a surviving spouse cannot alter or modify any provision of section 3.4 of this trust after the death of his or her spouse.</married>
+      %li <married>We agree in advance that changes</married><single>Changes</single> to this trust will be valid only if they are in writing and only if they are signed and dated by <married>one of us.</married><single>me.</single>
+      %li 
+        <married>Either one of us may revoke the trust in whole or in part by signing a written statement containing that revocation and delivering it to our trustee.  When that revocation is delivered to our trustee, he or she will distribute the assets affected by the revocation to us as in equal shares.</married><single>I may revoke the trust in whole or in part by signing a written statement containing that revocation and delivering it to my trustee.  When that revocation is delivered to my trustee, he or she will distribute to me the assets affected by the revocation.</single
+	
+  %li
+    We Describe How the Trust Property Will Be Distributed
+
+    %ol
+      %li 
+        <em>While we’re both alive.</em> Both of us will be the initial trustees of this trust.  As trustees—legal owners—we will make all the decisions about the property in this trust.  We will generally make those decisions together, but we also give each other the right to make final decisions about the trust property without consulting the other in cases of incapacity or absence.  That includes doing such things as selling trust property without authorization from the other trustee if that other trustee is incapacitated or absent.  In order to avoid any unintended gift tax consequences, we provide the following rights to each spouse:
+
+        %ol
+          %li Each spouse has the right at any time to require the trustee to distribute to him or her one-half of the value of the trust's assets, including any accumulated income.
+          %li Each spouse has the right at any time to appoint one-half of the trust's assets to himself or herself.
+          %li The power of appointment for each spouse described in 2.1.2 cannot be suspended or eliminated during that spouse's incapacity.
+
+
+      %li    
+        <em>What Happens When One of Us Dies.</em> If one of us dies and is survived by the other as determined by section 8, we direct our trustee to make the following provisions to minimize our estate tax liability and optimize our trustee’s ability to obtain a stepped-up basis in one-half of the assets:
+
+        %ol
+          %li Our trustee shall divide the assets of the #{@person.trustname} into approximately equal shares.  The division may be on a non-pro rata basis so that our trustee may fund the two shares in the most tax-efficient way.  The surviving spouse’s share shall be administered according to the provisions of section 2.3.
+          %li The deceased spouse’s share, to the extent not disclaimed by the surviving spouse, shall be administered according to the provisions of section 2.3.
+
+      %li
+        <em>Trust A.</em>  Trust A shall consist of the surviving spouse’s share as determined by section 2.2.1, the deceased spouse’s share to the extent it has not been disclaimed by the surviving spouse pursuant to section 2.2.2, and all other property transferred by will or by other means to this trust that has not been disclaimed by the surviving spouse. Trust A can be amended or revoked by the surviving spouse at any time. Our trustee shall administer the property for the following purposes:
+
+        %ol 
+          %li <em>Distribution of Income.</em>  Our trustee shall distribute on a monthly basis all of the income from this separate trust to or for the benefit of the surviving spouse during his or her lifetime. 
+          %li  <em>Principal for Spouse Pursuant to an Ascertainable Standard.</em>  In addition, our trustee shall pay to or for the benefit of the surviving spouse such portions of principal as our trustee shall determine to be necessary for health (including but not limited to medical, dental, hospital and nursing expenses) and maintenance to enable the surviving spouse to maintain the standard of living that he or she maintained during the deceased spouse’s lifetime.
+          %li <em>Principal on Demand.</em>  In addition, our trustee shall pay to or for the benefit of the surviving spouse such portions of principal as the surviving spouse may from time to time demand in writing, even if that withdrawal exhausts this trust.
+          %li <em>General Power of Appointment.</em>  After the first spouse dies, our trustee shall distribute the property of Trust A to such persons, including the estate of the surviving spouse, in such manner and amounts as the surviving spouse shall appoint by will with specific reference to this grant of a power of appointment.  This power of appointment shall be exercisable alone and in all events by the surviving spouse.
+          %li <em>Unappointed Property.</em>  If the surviving spouse fails to exercise this general power of appointment in the way described in this trust agreement with respect to all or any part of the property of Trust A, or if any attempted exercise of the power is void, the total unappointed property of Trust A, including both principal and accrued, accumulated, and undistributed income, shall be distributed to and administered as provided in section 2.4.
+          %li <em>Disclaimed Property.</em>  If the surviving spouse disclaims all of his or her interest in all or any portion of the share distributed to the deceased spouse, the portion of property to which the disclaimer applies shall be distributed to and administered as provided in section 2.4.
+
+      %li
+        <em>Trust B.</em>  Any property distributed to the surviving spouse under section 2.2.1 but disclaimed by the surviving spouse will be held in a Credit Shelter "Bypass" Trust and will be administered and distributed as follows:
+
+        %ol	
+          %li <em>Income.</em>  The net income of the Credit Shelter "Bypass" Trust shall be paid in monthly installments to or for the benefit of the surviving spouse for his or her lifetime.
+          %li <em>Five/Five Withdrawal.</em>  Upon written request of the surviving spouse, the trustee shall pay to him or her an amount not to exceed the greater of $5,000 (five thousand dollars) or 5% (five percent) of the total value of the principal of Trust B on the last day of such fiscal year without reduction for the principal payment for such fiscal year.  This money shall be paid from the principal of this trust during the last month of each fiscal year of the trust.  This right of withdrawal is noncumulative, so that if the surviving spouse does not withdraw the full amount during that fiscal year to which he or she is entitled under this paragraph, that right to withdraw the amount not withdrawn shall lapse at the end of that fiscal year.
+          %li <em>Principal for Spouse Pursuant to Ascertainable Standard.</em>  Our trustee also shall pay to or for the benefit of the surviving spouse such portions of the principal of the Credit Shelter "Bypass" Trust as our trustee may determine to be necessary for his or her health (including but not limited to medical, dental, hospital and nursing expenses) and maintenance to enable the surviving spouse to maintain the standard of living that he or she maintained during the deceased spouse’s lifetime. 
+          %li <em>Accumulated Income.</em>  Upon the death of the surviving spouse, our trustee shall distribute all accrued and undistributed income to such persons, including the estate of the surviving spouse, in such manner and amounts as the surviving spouse shall appoint by will with specific reference to the power of appointment here given.  That power of appointment shall be exercisable alone and in all events by the surviving spouse.  If the surviving spouse fails to exercise this general power of appointment, our trustee shall distribute all accrued and undistributed income to the recipient entitled to the next eventual interest. 
+
+  %li
+    Distributions
+    %ol	  
+      %li
+        After both of us have died, our trustee shall distribute the trust property to our descendants and beneficiaries as follows:
+             
+        =render :partial => "will_beneficiaries"
+      
+
+      %li
+        If any beneficiary named in 3.1.2, 3.1.3, or 3.1.4 dies before both of us die, our trustee shall distribute that beneficiary’s share to his or her children, one share for each child who survives the beneficiary and one share by right of representation for the surviving descendants of each child who does not survive that beneficiary. If any of those three beneficiaries is not survived by any children or grandchildren, we direct that beneficiary's share to be distributed in equal shares to any surviving beneficiaries named in 3.1.2, 3.1.3, and 3.1.4 or their lineal descendants. If none of our descendants survive us, our trustee shall distribute the residue of our trust estate as follows:
+
+        %ol
+          %li One-half to those persons surviving #{@person.name} who would be entitled to receive his intestate property as determined by #{@person.state} law at the time we signed our trust.
+          %li One-half to those persons surviving #{@person.spouse_name} who would be entitled to receive her intestate property as determined by #{@person.state} law at the time we signed our trust.
+
+      %li
+        If any trust property is given to a person younger than 21, that property will be held in separate sub-trust of this trust for each child, and independently managed by our trustee.  The trustee shall be chosen according to the provisions in Section 4. 
+
+        %ol	
+          %li Until a sub-trust ends the trustee may distribute from time to time to or for the benefit of the beneficiary as much or all of the net income or principal of the sub-trust as the trustee deems necessary for the beneficiary's health, support, education, and maintenance. Our trustee shall pay reasonable educational expenses and reasonable living expenses to (or for the benefit of) our beneficiaries. In deciding whether to make a distribution to the beneficiary, our trustee may take into account the beneficiary’s other income, resources, or sources of support.
+          %li Any sub-trust income which is not given to a beneficiary by our trustee shall be accumulated and added to the principal of the sub-trust that is being managed for that beneficiary. 
+          %li The interest of sub-trust beneficiaries shall not be transferable by voluntary or involuntary assignment or by operation of law and shall be free from the claims of creditors, from attachments, execution, bankruptcy, or other legal processes to the fullest extent permitted by law.
+
+      %li
+        The surviving spouse, or the personal representative of the spouse who survives the other, may disclaim all or any portion of the surviving spouse's estate devised and bequeathed to the surviving spouse.  If a qualified disclaimer is made, we give the disclaimed property to the trustee (as determined by Article 4) to be held in trust and administered and distributed as a separate disclaimer trust for the benefit of our family, including the surviving spouse, in the same manner as provided in Article 3.4 of this trust. If the surviving spouse is serving as trustee of a trust established under this trust, the surviving spouse shall have no rights in or powers over the trust property to the extent that those rights or powers would disqualify the disclaimer under IRC §2518.
+
+      %li It is our intent that in the unfortunate event of an annulment, separation, or dissolution of marriage, domestic partnership, or civil union of any beneficiary and his/her partner, our beneficiary's share remains as an individual share only.  Thus, each share, whether distributed from Trust A (section 2.3) or from Trust B (section 2.4), shall be kept only in the name of that beneficiary and shall remain separate from other funds. We do not want our beneficiary's share to be subject to any division or other disposition by court proceedings, e.g., pursuant to ORS 107.105(1) (f) or pursuant to analogous statutes in other jurisdictions.  We have no donative intent to any partner or spouse of a beneficiary, nor did any partner or spouse contribute to any beneficiary's share of our estate.  We did not consider any of our beneficiary's partners or spouses when making this distribution.
+
+
+  %li
+    We Describe Who We Want to Manage Our Property If Neither of Us Can Manage It
+
+    %ol
+        	
+      %li If one of us becomes incapacitated or is otherwise unable or unwilling to serve as a trustee, the other trustee will serve alone. If we both decide to resign as trustees, we will name our successor trustee in writing.
+
+      %li If we cannot name our successor trustee because of incapacity as defined in section 5.10, the trustee will be the one chosen according to the next section (4.3). 
+
+      %li 
+  
+        =render :partial => "trust_trustees" 
+
+      %li The successor trustee will manage the trust property and use any part of the trust income or principal to pay for our health care, support, and maintenance in accordance with our accustomed manner of living.  We direct our trustee to manage the trust property until a licensed physician certifies that we can manage our property or until we die.
+
+  %li
+    Our Trustees’ Duties and Powers
+
+    %ol
+      %li The term “trustee” includes successor trustees and co-trustees. 
+      %li No bond shall be required of any trustee named in this document.
+      %li No trustee shall receive any compensation for the ordinary duties of administration.  Our trustee shall be allowed reimbursement for actual costs involved in the administration as well as reasonable compensation for extraordinary services.  If a corporate or other independent trustee must be appointed, then that trustee shall be paid according to their schedule of fees for managing trusts of a similar size and complexity.
+      %li We give our trustee all the authority and power granted to trustees, subject to the trustee’s fiduciary duty to us and to our beneficiaries.  If the settlor is incapacitated, the successor trustee may continue any previously established giving program designed to reduce the size of the estate for estate tax minimization purposes.
+      %li If any trust property includes real property located outside of #{@person.state}, our trustee may convey title to that real property to a fiduciary qualified to serve in the jurisdiction where the real property is located.  That fiduciary shall hold the real property as an asset of the trust estate subject to all the terms of this instrument.
+      %li Any trustee may file with any person a written Certificate of Incumbency signed by the trustee and acknowledged in the form required for a deed for recording in #{@person.state}, stating that such trustee is the duly appointed, acting and qualified trustee under this agreement.  Any acts by such trustee shall be conclusively deemed to have been performed with full right and authority.  Any person dealing with such trustee may rely solely upon that Certificate of Incumbency.
+      %li Any trustee shall have the right to appoint additional successor trustees to serve as trustee if all the successor trustees named in this trust agreement are unable or unwilling to serve as trustee. 
+      %li A trustee may resign as trustee at any time without the necessity of court approval.  Any resignation will be in writing to the successor trustee (if any) and the beneficiaries.  The resignation will become effective only upon written acceptance of the trusteeship by the successor trustee.
+      %li If the trustee cannot administer the trust because of incapacity, the successor trustee will act as trustee during that period of incapacity and will have all rights and powers granted to the trustee by this instrument.
+      %li Incapacity means any physical or mental condition of the trustee that prevents the trustee from conducting the affairs of the trust estate.  Incapacity is conclusively established if the trustee’s attending physician, plus one other doctor authorized to practice medicine where the trustee lives, makes a written statement to that effect.  If there is no such written statement, the trustee may be chosen according to Section 5.11.
+      %li If there is not a competent trustee of our trust, a majority in interest of those beneficiaries of the trust who are of legal age and capacity and the guardians of those who are not of legal age and capacity may appoint a successor trustee or trustees.  Appointment shall be by a written document that is acknowledged by each person executing it.
+      %li A successor trustee or beneficiary who objects to following the procedures specified in this section may petition the court having jurisdiction over this trust to remove a trustee and, if there is no other acting trustee, replace him or her with the successor trustee.  If the petition is filed in good faith and in the reasonable belief that the substituted trustee is incapacitated or otherwise cannot act, that petitioner shall not incur any liability to any beneficiary or trustee of the trust.
+      %li Any third person dealing with our successor trustee shall accept, and shall be absolutely entitled to rely upon, the statement of the successor trustee that it has become the successor trustee in accordance with the provisions of this trust.  Third persons are under no obligation to make any investigation into the facts or circumstances of the assumption of authority by the successor trustee.
+      %li After both of us have died, any trustee may be removed on thirty days notice to the trustee by a majority in interest of our beneficiaries (or the guardians of those legally incompetent), provided that after such removal there is an independent trustee serving.  An independent trustee is an individual or an institution who has no beneficial interest in the trust, such as a bank or trust company, a professional trustee, investment advisor or manager, investment banker, accountant, or lawyer, and who is not related to or subordinate to any of our trust's beneficiaries.
+      %li All rights, title and interest in the property of the trust shall immediately vest in the successor trustee at the time of acceptance without further instrument of transfer or conveyance.  The prior trustee shall, without warranty, transfer to the successor trustee the existing trust property.  No successor trustee shall be under duty to examine the books or actions of the former trustee and shall not be held liable or responsible for any acts or defaults of any former trustee.
+      %li The trustee may consolidate any trust created by this instrument with any other trust if the trustee, beneficiaries and the provisions of each consolidation would not impair any tax benefit available to the trust.
+      %li Our trustee shall have the power to receive other property, real and personal, tangible or intangible, including life insurance policies, devised, bequeathed, granted, conveyed, assigned or made payable to our trustee by us or by any other person or persons, which property, upon acceptance, shall be added to and become a part of the trust estate and shall be subject to this Agreement.
+
+
+  %li
+    Tax Provisions
+
+    %ol
+      %li The trustee shall pay out of the residue of our trust estate all estate, inheritance and any other death taxes, plus interest and penalties, payable by reason of the death of either of us on property in or passing into any trust created by this agreement, without apportionment.
+      %li After the death of either of us, the trustee may pay debts of that person as they become due, including income taxes, penalties and interest, expenses of that person’s last illness and funeral, and costs and expenses, including professional fees, necessary to administer and settle that person’s probate or trust estate.
+      %li 
+        Our trustee shall have the sole discretion to:
+
+        %ol
+          %li  Claim deductions available to us or to our trust on inheritance or estate tax returns or on federal income tax returns;
+          %li  Make pro rata or non-pro rata distribution without regard to any differences in tax basis of assets distributed;
+          %li  Make allocations between income and principal;
+          %li  Determine asset values (including date-of-death values or alternate valuation date values) for estate and inheritance tax purposes and for asset distribution purposes;
+          %li  Make distributions in cash, in specific property, in undivided interests in property, or partly in cash and partly in property.
+
+      %li The good faith decisions of the personal representative and trustee in the exercise of these powers in Section 6.3 shall be conclusive and binding on all parties, and the personal representative or trustee need not make any adjustments between beneficiaries because of any election, decision, or distribution.
+
+  %li
+    Provisions for Qualified Plans
+
+    %ol 
+      %li 
+        We intend for this trust to be the receptacle for proceeds from our qualified retirement plans, our tax deferred annuities under IRC §403(b), our individual retirement accounts, and any other tax-oriented accounts in which distribution requirements can be extended over longer periods of time by complying with the proposed regulations promulgated by the Internal Revenue Service in §1.401(a)(9).
+
+        %ol        
+          %li For that purpose, we intend this trust to be considered the “designated beneficiary.”  To ensure such status, this trust has been written to comply with all applicable laws of the State of #{@person.state}.  
+          %li Furthermore, all of the beneficiaries are individuals and are listed by name in section 2 or will otherwise be specifically identifiable at the death of the surviving spouse.  The Trustee may not distribute to our estate or to any charity or any other non-individual beneficiary any benefits payable to this trust under any qualified retirement plan, individual retirement account or other retirement arrangement subject to the “minimum distribution rules” of §401(a)(9) of the Code, or other comparable provisions of law.  We intend that all such retirement benefits be distributed to or held for individual beneficiaries only within the meaning of §401(a) (9) and applicable regulations.  Accordingly, we direct that such benefits may not be used or applied for payment of our debts, taxes, expenses of administration or other claims against our estate; nor for payment of estate, inheritance or similar transfer taxes due on account of our deaths except to the minimum extent that would be required under applicable state or federal tax apportionment law in the absence of any specific provision on the subject in our will or this trust.  This paragraph shall not apply to any charitable bequest that is specifically directed to be funded with retirement benefits by other provisions of this instrument.
+          %li The class of a person’s “issue,” “children,” “descendants” or other similar group shall not include an individual who is a member of such group by virtue of legal adoption if such individual (1) was so adopted after the “Required Beginning Date” or our death, whichever occurs first, and (2) is older than the oldest beneficiary of this trust who was living on the earlier of those dates.  Our “Required Beginning Date,” for purposes of this paragraph, means April 1 of the year following the year in which we reach age 70 ½, or, if later, the date on which this trust is first named as a beneficiary of any retirement plan, benefit or arrangement subject to the “minimum distribution rules” of §401(a) (9) of the Internal Revenue Code.  
+          %li This trust will become irrevocable at the death of the surviving spouse.  
+          %li We direct our trustee to supply appropriate documentation of this trust to the plan administrator, account custodian, or other person specified by law or regulation to receive such documentation.  
+          %li No one has the power to change a beneficiary after we die.
+          %li We direct our trustee to make the first minimum required distributions under IRC §401(a)(9) or its statutory successor no later than the end of the calendar year following the year of our death or at such other time as provided by §401(a)(9), any amendment to that statute, or any successor to that statute.
+
+      %li If our trustee has any trust funds left under his or her control for which there is no named or described beneficiary, our trustee shall distribute that amount to those persons then living who would be entitled to receive the intestate personal property as determined by #{@person.state} law as if we had died at the termination of the trust.
+      
+        
+  %li 
+    Administrative Provisions
+
+    %ol
+      %li If any beneficiary under this trust dies within sixty days after the death of the surviving spouse, all of the provisions in this trust for the benefit of such person shall lapse, and this trust shall be construed as if such person predeceased the surviving spouse.
+      %li Neither the principal nor the income of this trust shall be liable for debts of any beneficiary.  No beneficiary shall have any power to sell, assign, transfer, encumber, anticipate or dispose of his or her interest in the trust or its income.  The limitations in this section shall not restrict the exercise of any power of appointment or the right to disclaim.
+      %li The laws of the State of #{@person.state} in effect on the date of this Revocable Living Trust shall govern the validity and interpretation of this Revocable Living Trust.  If any provision of this trust is held to be invalid or unenforceable, the remaining provisions shall nevertheless be carried into effect.
+      %li If at any time after we have both died the trustee determines that the principal of any trust created, or to be created, is of insufficient amount to justify establishment or continuance of the trust, the trustee is authorized, without necessity of court approval, after giving notice to those currently entitled to receive distributions from the trust, to terminate or not to establish the trust if it is th best interests of all of the beneficiaries.  The trustee shall make terminating distributions to the beneficiaries of the trust or their custodians or conservators in proportions in which they were entitled to receive distributions at the time of termination of the interest. This power may be exercised even if the trustee is a beneficiary of the trust or has a duty of support for a beneficiary of the trust.
+      %li Despite any other provision of this instrument, each trust created by this instrument will terminate and be distributed to the person then entitled to distributions of income, in the manner and proportions stated in this instrument and regardless of their ages, not later than ninety (90) years after the creation of that specific trust or 21 years after the death of the last survivor of the beneficiaries named in this instrument who are living at the date of death of the surviving spouse, whichever is later in time.
+      %li If any beneficiary of this trust seeks through any court proceeding to prevent the administration of this trust in accordance with its terms, contest the validity of this trust or challenge any of its provisions, any share or interest in our estate given to that beneficiary under this trust is revoked.  That share or interest shall be disposed of under this Trust as if that beneficiary did not survive us or, if the <br><br><br><br>beneficiary is not a natural person, as if the beneficiary had ceased to exist without successors or assigns.
+
+%p <strong>Executed</strong> on #{@person.currentdate}.<br><br>
+
+%span ___________________________________<br>            
+%span #{@person.name}, Trustor and Trustee<br><br>
+
+
+%span ___________________________________<br>
+%span #{@person.spouse_name}, Trustor and Trustee
+
+
+ 
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+-# Two successor trustees (check to be sure names 1-2 aren't nil and 3 is nil)
+- if !@person.trustee.successor_trustee_1.nil? and !@person.trustee.successor_trustee_2.nil? and @person.trustee.successor_trustee_3.nil?
+  If <single>I cannot</single><marriedco>neither of us can</marriedco> serve as trustee because of <marriedco>resignation, </marriedco>incapacity<marriedco>/,</marriedco> or death, <single>I</single><marriedco>we</marriedco> name #{@person.successor_trustee_1} as <single>my</single><marriedco>our</marriedco> successor trustee.
+
+-# Three successor trustees (check to be sure all 3 names have been entered)
+- elsif !@person.trustee.successor_trustee_1.nil? and !@person.trustee.successor_trustee_2.nil? and !@person.trustee.successor_trustee_3.nil?
+  My content here

@@ -1,0 +1,182 @@
+%h1 Last Will and Testament of #{@person.name}
+
+-# Using custom tags and CSS to show/hide conditional text
+- if @person.marital_status == "I am married."
+  :scss
+    married { display: inline; }
+- else
+  :scss
+    single { display: inline; }
+	
+- if @person.singleorco == "Single trustees"
+  :scss
+    alone { display: inline; }
+- else
+  :scss
+    co { display: inline; }
+	
+- if @person.lumporseries == "In a lump sum."
+  :scss
+    lump { display: inline; }
+- else
+  :scss
+    series { display: inline; }
+	
+- if @person.gender == "Male"
+  :scss
+    male { display: inline; }
+- else
+  :scss
+    female { display: inline; }	
+
+%ol.legal
+  %li
+    My Declaration
+
+    %ol
+      %li I, #{@person.name}, declare this to be my last Will, hereby revoking all former wills and codicils. 
+  
+  %li 
+    Personal Representatives
+
+    %ol
+
+      %li
+        =render :partial => "will_personalrepresentative"   
+    
+
+      %li To the extent allowed by law, I direct that my personal representative and his or her successors serve without bond or other undertaking and without reporting or accounting to any court.
+      %li I give my personal representative all powers conferred on a personal representative by Oregon law as now existing or later amended, whether or not those powers are exercised in Oregon.
+      
+  %li
+    Gifts
+
+    %ol
+      %li <married>If #{@person.spouse_name} survives me, I give <male>her</male><female>him</female></married><single>I give to my beneficiaries listed in Section 4 in equal shares</single> all of my interest in all of my real property and personal property, including all household furniture, furnishings and fixtures, jewelry, china, silverware, books, pictures, clothing, art objects, collections and all other items of domestic, household or personal use or adornment that at the time of my death shall be in, about or used in connection with my home; all sporting and recreational equipment; all other tangible property for personal use; all other like contents of my home and any vacation property that I may own or reside in on the date of my death; all animals; any motor vehicles that I may own on the date of my death; and any unexpired insurance on all such property.
+      %li If I have prepared a list of additional special bequests, I recommend that my personal representative distribute the items listed to the designated persons, regardless of whether those items have been listed before or after the execution of this will.
+
+  %li
+    Contingent Distributions        
+    %ol
+      %li      
+        <married>If #{@person.spouse_name} does not survive me,</married> I direct that all of my property be distributed as follows:
+
+
+        =render :partial => "will_beneficiaries"
+
+      %li
+        If any beneficiary dies before I do and there are no specific instructions for distribution of that person's share, I direct my executor to distribute that beneficiary's share to his or her children, one share for each child who survives that beneficiary and one share by right of representation for the surviving descendants of each child who does not survive that beneficiary. If any of those beneficiaries is not survived by any children or grandchildren, I direct that beneficiary's share to be distributed in equal shares to any surviving beneficiaries named in the preceding section or their lineal descendants. If none of my descendants survive me, I direct my executor to distribute all of the rest and residue of my estate to those persons surviving me who would be entitled to receive my intestate property as determined by Oregon law at the time I exsecuted this Will.
+      
+  %li
+    Trust for Children
+    %ol
+      %li	
+        If any distribution of property is given to a person younger than 21, that property will be held in trust for that child, and independently managed by my trustee.  The trustee shall be the person nominated as Personal Representative in Section 2. If the legal ownership or the beneficial interest of an asset is transferred to this trust, it shall be transferred to the person serving as the trustee, as trustee of the #{@person.trustname}.
+
+      %li	
+        Until this trust ends the trustee may distribute from time to time to or for the benefit of the beneficiary as much or all of the net income or principal of the trust as the trustee deems necessary for the beneficiary's health, support, education, and maintenance. My trustee shall pay reasonable educational expenses and reasonable living expenses to (or for the benefit of) my beneficiaries. In deciding whether to make a distribution to the beneficiary, my trustee may take into account the beneficiary’s other income, resources, or sources of support.
+        
+      %li
+        Any trust income which is not given to a beneficiary by my trustee shall be accumulated and added to the principal of the trust that is being managed for that beneficiary. 
+        
+      %li
+        The interest of trust beneficiaries shall not be transferable by voluntary or involuntary assignment or by operation of law and shall be free from the claims of creditors, from attachments, execution, bankruptcy, or other legal processes to the fullest extent permitted by law.
+       
+      %li 
+        It is my intent that in the unfortunate event of an annulment, separation, or dissolution of marriage, domestic partnership, or civil union of any beneficiary and his/her partner, my beneficiary's share remains as an individual share only.  Thus, each share shall be kept only in the name of that beneficiary and shall remain separate from other funds. I do not want my beneficiary's share to be subject to any division or other disposition by court proceedings, e.g., pursuant to ORS 107.105(1) (f) or pursuant to analogous statutes in other jurisdictions.  I have no donative intent to any partner or spouse of a beneficiary, nor did any partner or spouse contribute to any beneficiary's share of my estate.  I did not consider any of my beneficiary's partners or spouses when making this distribution.
+   
+	  
+  %li	  
+    Other Administrative Provisions
+    
+    %ol
+      %li A beneficiary under my Will shall be considered to survive me only if the beneficiary is living on the sixtieth day after the date of my death. 
+      %li I direct my personal representative to pay out of the residue of my estate, without apportionment, all estate, inheritance, and other death taxes (including interest and penalties) payable by reason of my death on property passing under this Will.  All death taxes on property not passing under this Will shall be apportioned according to Oregon law.
+      %li I direct my personal representative to pay out of the residue of my estate, without apportionment, all debts of mine as they come due, expenses of my last illness and funeral, and expenses incurred in administering or distributing my estate.
+      %li 
+        My personal representative shall have sole discretion to:
+	  
+        %ol
+          %li Claim deductions available to me or to my trust on inheritance or estate tax returns or on federal income tax returns;
+          %li Make pro rata or non-pro rata distributions without regard to any differences in tax basis of assets distributed;
+          %li Make allocations between income and principal;
+          %li Determine asset values (including date-of-death values or alternate valuation date values) for estate and inheritance tax purposes and for asset distribution purposes; and
+          %li Make distributions in cash, in specific property, in undivided interests in property, or partly in cash and partly in property. 
+
+      %li The good faith decisions of my personal representative and trustee in the exercise of these powers shall be conclusive and binding on all parties, and my personal representative or trustee does not need to make any adjustments between beneficiaries because of any election, decision, or distribution.
+      %li The validity and construction of my Will shall be determined under Oregon law in effect on the date my Will is signed.
+    
+      %li If any portion of the residue is distributable free of trust in accordance with the trust's provisions, my personal representative shall distribute that portion directly to the beneficiary or beneficiaries.
+
+%p <strong>IN WITNESS WHEREOF,</strong> I, #{@person.name}, execute this my last will on the #{@person.currentdate}.
+
+
+%span ___________________________________ <br>
+#{@person.name}
+
+%h1 Statement of Witnesses
+
+%p This Will was on the above date signed by <male>him</male><female>her</female> who declared this to be <male>his</male><female>her</female> Will; and we, at <male>his</male><female>her</female> request and in <male>his</male><female>her</female> presence and in the presence of each other, have signed our names as attesting witnesses. At the time this Will was signed, we believed the testator was of sound mind and memory and was acting voluntarily.
+<br>
+<br>
+
+%span ___________________________________ <br>
+Signature of Witness #1<br>
+<br>
+
+%span ___________________________________ <br>
+Street Address of Witness #1<br>
+<br>
+
+%span ___________________________________ <br>
+City, State, and Zip Code of Witness #1<br>
+<br>
+<br>
+<br>
+<br>
+
+%span ___________________________________ <br>
+Signature of Witness #2<br>
+<br>
+
+%span ___________________________________ <br>
+Street Address of Witness #2<br>
+<br>
+
+%span ___________________________________ <br>
+City, State, and Zip Code of Witness #2<br>
+<br>
+
+
+%h1 Affidavit of Attesting Witnesses to Will
+
+STATE OF OREGON <br>
+County of #{@person.county}
+
+%p We, ___________________________________________ and ___________________________________________ , being sworn, each say:
+%p We are the attesting witnesses to the Will executed by #{@person.name}, dated #{@person.currentdate}. The Will was executed in our presence and in the presence of the testator, who declared the instrument to be <male>his</male><female>her</female> Will and requested us to sign our names as witnesses, which we did. To the best of our knowledge and belief, the testator was of legal age, of sound mind, and not acting under any restraint, undue influence, duress, or fraudulent misrepresentation.<br>
+<br>
+<br>
+
+%span ___________________________________ <br>
+Signature of Witness #1<br>
+<br>
+<br>
+
+%span ___________________________________ <br>
+Signature of Witness #2<br>
+<br>
+<br>
+
+%p SUBSCRIBED AND SWORN TO by each of the above named affiants on #{@person.currentdate}.
+<br>
+<br>
+
+%span ___________________________________ <br>
+Notary Public for Oregon<br>
+My commission expires: __________________ <br>
+
+
+
+
+

@@ -1,0 +1,11 @@
+    form_id = 'pkneqt80w2c79h'
+    entry = wufoo.form(form_id).entries(filters: [["Field2978", "Is_equal_to", "#{email}"]] ).last
+    unless entry.nil?
+      @trustee = Trustee.new
+      @trustee = Trustee.where(:person_id => person.id).first if Trustee.where(:person_id => person.id).count != 0
+      @trustee.person = person
+      @trustee.trusteename = entry["Field3103"]
+      @trustee.single_successor_trustee = entry["Field3103"]
+      if entry["Field3126"] == "Yes."
+        @trustee.spouse_co_trustee = false
+      end

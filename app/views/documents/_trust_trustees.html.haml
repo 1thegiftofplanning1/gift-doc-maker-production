@@ -1,0 +1,43 @@
+-# Using custom tags and CSS to show/hide conditional text
+- if @person.marital_status == "I am married."
+  :scss
+    married { display: inline; }
+- else
+  :scss
+    single { display: inline; }
+	
+- if @person.singleorco == "Single trustees"
+  :scss
+    alone { display: inline; }
+- else
+  :scss
+    co { display: inline; }
+	
+- if @person.lumporseries == "In a lump sum."
+  :scss
+    lump { display: inline; }
+- else
+  :scss
+    series { display: inline; }
+
+
+-# Conditional Blocks
+- if @person.trusteenumber == "One"
+  If neither of us can serve as trustee because of resignation, incapacity, or death, we name #{@person.trusteetheone} as our successor trustee. If #{@person.trusteetheone} is unable or unwilling to serve, we direct the successor trustee to be chosen according to Section 4.11 of this trust.
+- elsif @person.trusteenumber == "Two"
+  <alone>If <single>I cannot</single><married>neither of us can</married> serve as trustee because of resignation, incapacity, or death, <single>I</single><married>we</married> name #{@person.trusteetheone} as <single>my</single><married>our</married> successor trustee. If #{@person.trusteetheone} is unable or unwilling to serve, <single>I</single><married>we</married> name #{@person.trusteethesecond} as <single>my</single><married>our</married> successor trustee. If #{@person.trusteethesecond} is unable or unwilling to serve, <single>I</single><married>we</married> direct the successor trustee to be chosen according to Section 5.11 of this trust.</alone><co>If <single>I cannot</single><married>neither of us can</married> serve as trustee because of resignation, incapacity, or death, <single>I</single><married>we</married> name #{@person.trusteetheone} and #{@person.trusteethesecond} as <single>my</single><married>our</married> successor co-trustees. If either #{@person.trusteetheone} or #{@person.trusteethesecond} is unable or unwilling to serve, <single>I</single><married>we</married> name the other as <single>my</single><married>our</married> sole successor trustee. If neither #{@person.trusteetheone} nor #{@person.trusteethesecond} is able or willing to serve, <single>I</single><married>we</married> direct the successor trustee to be chosen according to Section 5.11 of this trust.</co>
+  
+  
+- if @person.trusteenumber == "Three" && @person.co2_3 == "Yes"
+  If neither of us can serve as trustee because of resignation, incapacity, or death, we name #{@person.trusteetheone} as our successor trustee. If #{@person.trusteetheone} is unable or unwilling to serve, <married>we</married> name #{@person.trusteethesecond} and #{@person.trusteethethird} as <single>my</single><married>our</married> successor co-trustees. If either #{@person.trusteethesecond} or #{@person.trusteethethird} is unable or unwilling to serve, <single>I</single><married>we</married> name the other as <single>my</single><married>our</married> sole successor trustee. If neither #{@person.trusteethesecond} nor #{@person.trusteethethird} is able or willing to serve, <single>I</single><married>we</married> direct the successor trustee to be chosen according to Section 5.11 of this trust.
+  
+- elsif @person.trusteenumber == "Three"
+  If neither of us can serve as trustee because of resignation, incapacity, or death, we name #{@person.trusteetheone} as our successor trustee. If #{@person.trusteetheone} is unable or unwilling to serve, we name #{@person.trusteethesecond} as our successor trustee. If #{@person.trusteethesecond} is unable or unwilling to serve, we name #{@person.trusteethethird} as our successor trustee. If #{@person.trusteethethird} is unable or unwilling to serve, we direct the successor trustee to be chosen according to Section 5.11 of this trust.
+
+- elsif @person.trusteenumber == "Four"
+  <alone>If I cannot serve as trustee because of resignation, incapacity, or death, I name #{@person.trusteetheone} as my successor trustee. If #{@person.trusteetheone} is unable or unwilling to serve, I name #{@person.trusteethesecond} as my successor trustee. If #{@person.trusteethesecond} is unable or unwilling to serve, I name #{@person.trusteethethird} as my successor trustee. If #{@person.trusteethethird} is unable or unwilling to serve, I name #{@person.trusteethefourth} as my successor trustee. If #{@person.trusteethefourth} is unable or unwilling to serve, I name #{@person.trusteethefifth} as my successor trustee. If #{@person.trusteethefifth} is unable or unwilling to serve, I direct the successor trustee to be chosen according to Section 5.11 of this trust.</alone><co>
+  
+
+  
+
+

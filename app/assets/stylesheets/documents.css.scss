@@ -1,0 +1,324 @@
+// Place all the styles related to the documents controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Variables
+-------------------------------------------------------------------------------- */
+$font-stack: Garamond, serif;
+$link-color: #0072CB;
+
+/* Page PDF styles
+-------------------------------------------------------------------------------- */
+
+@page {
+	size: 8.5in 11in;
+	margin: .1.00in 1.00in 1.00in 1.00in;
+    font: 14pt/1.5em $font-stack;
+	/*prince-shrink-to-fit: auto;*/
+  
+	@bottom-left {
+    font-size: 1em;
+		font-style: italic;
+		white-space: pre;
+		content: string(title);
+	}
+	
+  @bottom-right {
+    content: counter(page);
+	font-size: 1em;
+	font-style: italic;
+  }
+}
+
+/* Base Styles
+-------------------------------------------------------------------------------- */
+
+body {
+  font: 13pt/1.5em $font-stack;
+  line-height: 1.5em;
+  color: #000;
+  widows: 2;
+  orphans: 2;
+  
+}
+
+h1 {
+  font: 530 2.5em/1.6em $font-stack;
+  margin: 0 0 1em;
+  text-align: center;
+  page-break-before: always;
+  page-break-after: avoid !important;
+  string-set: title content();
+  counter-reset: page 1; 
+ 
+}
+
+
+em {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: bold;
+  
+}
+p {
+  text-indent: 2em;
+  
+}
+ul {
+
+  li {
+    list-style-type: disc;
+    margin-bottom: 1em;
+    
+  }
+}
+ol {
+  
+  li {
+	    
+  }
+}
+
+.note {
+  border: 0.2em solid black;
+  padding: 0.5em 0.75em;
+  
+}
+hr {
+  border: none;
+  border-bottom: 0.1em solid black;
+  height: 1em;
+  margin: 0.25em 0 0.5em;
+ 
+}
+
+/* Conditional Hiding
+-------------------------------------------------------------------------------- */
+
+married, single, partners {
+  display: none;
+}
+
+trust, will {
+  display: none;
+}
+
+alone, co {
+  display: none;
+}
+
+male, female {
+  display: none;
+}
+
+trustees 
+sole, co {
+  display: none;
+}
+
+co2_3 {
+	display: none;
+}
+lump, series {
+  display: none;
+}
+
+@media print {
+  a.pdf-link {
+    display: none;
+
+  }
+  
+  
+}
+
+/* Example table of contents styles
+-------------------------------------------------------------------------------- */
+
+#toc {
+  a {
+    color: $link-color;
+  }
+}
+
+@media print {
+  #toc {
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+    a::after { content: leader(".") target-counter(attr(href), page); }
+    
+    margin-bottom: 2em;
+  }
+}
+
+/* Upper Roman, then UL with discs/standard bullets within
+-------------------------------------------------------------------------------- */
+
+ol.roman {
+  counter-reset: roman-counter;
+  
+  li:before {
+    content: counter(roman-counter, upper-roman) ". \A";
+    counter-increment: roman-counter;
+    margin: 0 -0.25em 0 0.25em;
+    display: inline-block;
+    width: 1em; // keeps the content aligned across multiple roman list items
+  }
+  li {
+    margin: 0.65em 0 0 1em;
+    list-style-type: none;
+    text-indent: -1em; // accounts for li:before width
+    
+    ul {
+      
+      li:before {
+        content: none;
+        counter-increment: none;
+      }
+      
+      li {
+        margin-left: .5em;
+        margin-top: 0;
+        list-style-type: disc;
+        text-indent: 0.25em;
+      }
+    }
+  }
+  
+}
+
+/* Upper Alpha, then UL with no list style within
+-------------------------------------------------------------------------------- */
+
+ol.alpha {
+  counter-reset: alpha-counter;
+  
+  li:before {
+    content: counter(alpha-counter, upper-alpha) ". \A";
+    counter-increment: alpha-counter;
+    margin-right: 0.5em;
+    margin-left: -1em;
+  }
+  li {
+    margin-top: 0.65em;
+  }
+  
+  li {
+    list-style-type: none;
+    margin-bottom: 0;
+    
+    ul {
+      
+      li:before {
+        content: none;
+        counter-increment: none;
+      }
+      
+      li {
+        margin-left: 1em;
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+/* Legal Numbered Section
+-------------------------------------------------------------------------------- */
+
+ol.legal {
+  counter-reset: item;
+  display: block;
+  margin: 0; padding: 0;
+  widows: 2;
+  orphans: 2;
+  
+  ol {
+    counter-reset: item;
+    display: block;
+    margin: 0; padding: 0; 
+	
+    
+  }
+  
+  li {
+    display: block;
+    text-align: center;
+    margin-bottom: 1em;
+    font-weight: bold;
+    font-size: 1.00em;
+	
+	
+    
+    li {
+      text-align: left;
+      font-weight: normal;
+      font-size: 1.00em;
+      text-indent: 2em;
+	     
+
+      li {
+        font-size: 1em;
+        margin-left: 2em;
+		
+      }
+    }
+    li:first-child {
+      margin-top: 1em;
+	   
+	  
+    }
+    li:before {
+      content: counters(item, ".") " \00a0\00a0";
+	  
+	  
+    }
+  }
+    
+  li:before {
+    content: counters(item, ".") ". \A";
+    white-space: pre;
+    counter-increment: item;
+	page-break-after: avoid;
+	
+  }
+}
+
+
+
+/* Property List Account Info
+-------------------------------------------------------------------------------- */
+
+ol.accounts {
+  counter-reset: accounts;
+  margin-top: 2.5em;
+
+  
+  li {
+  
+    ul.account {
+      display: table;
+      margin: -1.5em 0 2.5em; // negative to clear out whitespace (not going to use a float)
+      border-collapse: collapse;
+    
+      li {
+        display: table-row;
+
+        .account-head, .account-info {
+          display: table-cell;
+          border: 0.1em solid black;
+          padding: 0.25em 0.5em;
+          vertical-align: top;
+        }
+        .account-head {
+          background: #eee;
+        }
+        .account-info {
+          width: 20em;
+        }
+      }
+    }
+  }
+}
+

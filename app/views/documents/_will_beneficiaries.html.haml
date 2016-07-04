@@ -1,0 +1,37 @@
+-# Conditional Blocks
+- if @person.beneficiarynumber == "One"
+  <lump>#{@person.percentageone} of my remaining assets to #{@person.onebeneficiary}.</lump><series>#{@person.percentageone} of my remaining assets to #{@person.onebeneficiary} with 50% of the share to be distributed at age 22 and #{@person.percentagetwo} of the assets of my trust to #{@person.twobeneficiary}.</series>
+  
+- elsif @person.beneficiarynumber == "Two"
+  %ol
+    %li <lump>#{@person.percentageone} of our remaining assets to #{@person.onebeneficiary}. #{@person.contingentdescription}
+    %li <lump>#{@person.percentagetwo} of our remaining assets to #{@person.twobeneficiary}.
+  
+- elsif @person.beneficiarynumber == "Three"
+  %ol
+    %li <lump>#{@person.percentageone} of my remaining assets to #{@person.onebeneficiary}. #{@person.contingentdescription}
+    %li #{@person.percentagetwo} of my remaining assets to #{@person.twobeneficiary}.</lump><series>#{@person.percentageone} of the assets of my trust to #{@person.onebeneficiary} with 50% of the share to be distributed at age 22 and #{@person.percentagetwo} of the assets of my trust to #{@person.twobeneficiary}.</series> #{@person.contingentdistribution}
+    %li #{@person.percentagethree} of my remaining assets to #{@person.threebeneficiary}.</lump><series>#{@person.percentagethree} of the assets of my trust to #{@person.threebeneficiary} with 50% of the share to be distributed at age 22 and #{@person.percentagethree} of the assets of my trust to #{@person.threebeneficiary}.</series> #{@person.contingentdistribution}	 
+  
+- elsif @person.beneficiarynumber == "Four"
+  %ol
+    %li <lump>#{@person.percentageone} of my remaining assets to #{@person.onebeneficiary}. #{@person.contingentdistribution}
+    %li #{@person.percentagetwo} of my remaining assets to #{@person.twobeneficiary}.</lump><series>#{@person.percentageone} of the assets of my trust to #{@person.onebeneficiary} with 50% of the share to be distributed at age 22 and #{@person.percentagetwo} of the assets of my trust to #{@person.twobeneficiary}.</series> 
+    %li #{@person.percentagethree} of my remaining assets to #{@person.threebeneficiary}.</lump><series>#{@person.percentagethree} of the assets of my trust to #{@person.threebeneficiary} with 50% of the share to be distributed at age 22 and #{@person.percentagethree} of the assets of my trust to #{@person.threebeneficiary}.</series> 
+    %li #{@person.percentagefour} of my remaining assets to #{@person.fourbeneficiary}.</lump><series>#{@person.percentagethree} of the assets of my trust to #{@person.fourbeneficiary} with 50% of the share to be distributed at age 22 and #{@person.percentagefour} of the assets of my trust to #{@person.fourbeneficiary}.</series>
+  
+  
+- elsif @person.beneficiarynumber == "Five"
+  <lump>#{@person.percentageone} of the assets of my trust to #{@person.onebeneficiary}, #{@person.percentagetwo} of the assets of my trust to #{@person.twobeneficiary}, #{@person.percentagethree} of the assets of my trust to #{@person.threebeneficiary}, #{@person.percentagefour} of the assets of my trust to  #{@person.fourbeneficiary}, and #{@person.percentagefive} of the assets of my trust to #{@person.fivebeneficiary}.</lump><series>#{@person.percentageone} of the assets of my trust to #{@person.onebeneficiary} with 50% of the share to be distributed at age 22</series>
+
+- elsif @person.beneficiarynumber == "Six"
+  <lump>#{@person.percentageone} of the assets of my trust to #{@person.onebeneficiary}</lump><series>#{@person.percentageone} of the assets of my trust to #{@person.onebeneficiary} with 50% of the share to be distributed at age 22</series>, #{@person.percentagetwo} of the assets of my trust to #{@person.twobeneficiary}, #{@person.percentagethree} of the assets of my trust to #{@person.threebeneficiary}, #{@person.percentagefour} of the assets of my trust to  #{@person.fourbeneficiary} (with the amount to be divided into equal monthly payments over 20 years), #{@person.percentagefive} of the assets of my trust to #{@person.fivebeneficiary} (with the amount to be divided into equal monthly payments over 10 years), and #{@person.percentagesix} of the assets of my trust to  #{@person.sixbeneficiary} (with the amount to be divided into equal monthly payments over 10 years).
+
+- elsif @person.beneficiarynumber == "Seven"
+  <lump>#{@person.percentageone} of the assets of my trust to #{@person.onebeneficiary}</lump><series>#{@person.percentageone} of the assets of my trust to #{@person.onebeneficiary} with 50% of the share to be distributed at age 22</series>, #{@person.percentagetwo} of the assets of my trust to #{@person.twobeneficiary}, #{@person.percentagethree} of the assets of my trust to #{@person.threebeneficiary}, #{@person.percentagefour} of the assets of my trust to #{@person.fourbeneficiary}, #{@person.percentagefive} of the assets of my trust to #{@person.fivebeneficiary}, #{@person.percentagesix} of the assets of my trust to  #{@person.sixbeneficiary}, and #{@person.percentageseven} of the assets of my trust to  #{@person.sevenbeneficiary}.
+  
+- elsif @person.contingentdistribution == "Neither of those two options expresses my wishes."
+  #{@person.contingentdescription}
+  
+
+
