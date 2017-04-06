@@ -8,7 +8,7 @@ ActiveAdmin.register Person do
   :trusteenumber, :currentdate, :onebeneficiary, :twobeneficiary, :singleorco, :beneficiarynumber, :percentageone, :percentagetwo, 
   :threebeneficiary, :fourbeneficiary, :lumporseries, :percentagethree, :percentagefour, :percentagefive, :percentagesix, :fivebeneficiary, 
   :sixbeneficiary, :trusteethethird, :sevenbeneficiary, :percentageseven, :trusteethefourth, :trusteethefifth, :county, :beneficiaryone, 
-  :contingentdistribution, :contingentdescription, :otherprovisions, :trustname, :package, :co2_3
+  :contingentdistribution, :contingentdescription, :otherprovisions, :trustname, :package, :co2_3, :code
 
   #form do |f|
   #form do |f|
@@ -105,6 +105,7 @@ ActiveAdmin.register Person do
         @person.gender = entry["Field3139"]
         @person.trustname = entry["Field3760"]
         @person.co2_3 = entry["Field3800"]
+        @person.code = entry["Field3801"]
         @person.mask = Digest::MD5.hexdigest("9b3a1fb75fe185e077202de53039f300cd49d398"+@person.email)
         @person.save!
       end

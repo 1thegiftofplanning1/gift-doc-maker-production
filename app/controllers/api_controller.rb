@@ -55,6 +55,7 @@ class ApiController < ApplicationController
       @person.package = entry["Field3762"]
       @person.trustname = entry["Field3760"]
       @person.co2_3 = entry["Field3800"]
+      @person.code = entry["Field3801"]
       @person.mask = Digest::MD5.hexdigest("9b3a1fb75fe185e077202de53039f300cd49d398"+@person.email)
       @person.save!
     end
